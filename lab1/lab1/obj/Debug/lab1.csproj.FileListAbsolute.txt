@@ -1,0 +1,9 @@
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\bin\Debug\lab1.exe.config
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\bin\Debug\lab1.exe
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\bin\Debug\lab1.pdb
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\obj\Debug\lab1.Form1.resources
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\obj\Debug\lab1.Properties.Resources.resources
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\obj\Debug\lab1.csproj.GenerateResource.Cache
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\obj\Debug\lab1.exe
+C:\Users\Никита\Source\Repos\Badygaev_N.V.-Labs_C-ISE_BD_21a\lab1\lab1\obj\Debug\lab1.pdb
