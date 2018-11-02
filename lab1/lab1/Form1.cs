@@ -7,26 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static lab1.bulldozer;
+using WindowsFormsCars;
 
 namespace lab1
 {
     public partial class Form1 : Form
     {
-        private bulldozer bulldozer;
 
-           
-      
+
+        private ITrandport car;
+
+
+
         public Form1()
         {
             InitializeComponent();
         }
-        
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            bulldozer.DrawCar(gr);
+            car.DrawCar(gr);
             pictureBoxBulldozer.Image = bmp;
         }
         /// <summary>
@@ -37,11 +39,20 @@ namespace lab1
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            bulldozer = new bulldozer(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
-           Color.Yellow, true);
-            bulldozer.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width,
+            car = new bulldozer(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+           Color.Black, true);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width,
            pictureBoxBulldozer.Height);
             Draw();
+        }
+        private void buttonCreateCar_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width,
+           pictureBoxBulldozer.Height);
+            Draw();
+
         }
         /// <summary>
         /// Обработка нажатия кнопок управления
@@ -55,24 +66,23 @@ namespace lab1
             switch (name)
             {
                 case "buttonUp":
-                    bulldozer.MoveTransport(Direction.Up);
+                    car.MoveTransport(Direction.Up);
                     break;
                 case "button1":
-                    bulldozer.MoveTransport(Direction.Down);
+                    car.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    bulldozer.MoveTransport(Direction.Left);
+                    car.MoveTransport(Direction.Left);
                     break;
                 case "button2":
-                    bulldozer.MoveTransport(Direction.Right);
+                    car.MoveTransport(Direction.Right);
                     break;
             }
             Draw();
-        }
-
-        private void buttonRight_Click(object sender, EventArgs e)
-        {
-
         }
     }
+
+
+
+
 }

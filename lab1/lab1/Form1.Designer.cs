@@ -36,6 +36,7 @@
             this.buttonRight = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.buttonCreateCar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBulldozer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +53,9 @@
             // 
             this.create.Location = new System.Drawing.Point(0, 0);
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(75, 23);
+            this.create.Size = new System.Drawing.Size(117, 23);
             this.create.TabIndex = 1;
-            this.create.Text = "Создать";
+            this.create.Text = "Создать Бульдозер";
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
@@ -97,7 +98,6 @@
             this.buttonRight.TabIndex = 5;
             this.buttonRight.Text = "вправо";
             this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
             // 
             // button1
             // 
@@ -119,11 +119,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateCar
+            // 
+            this.buttonCreateCar.Location = new System.Drawing.Point(176, -1);
+            this.buttonCreateCar.Name = "buttonCreateCar";
+            this.buttonCreateCar.Size = new System.Drawing.Size(121, 23);
+            this.buttonCreateCar.TabIndex = 6;
+            this.buttonCreateCar.Text = "Создать Трактор";
+            this.buttonCreateCar.UseVisualStyleBackColor = true;
+            this.buttonCreateCar.Click += new System.EventHandler(this.buttonCreateCar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.buttonCreateCar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.button1);
@@ -150,6 +161,7 @@
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonCreateCar;
     }
 }
 
