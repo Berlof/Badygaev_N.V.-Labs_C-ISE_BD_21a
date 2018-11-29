@@ -1,4 +1,5 @@
 ﻿using lab1;
+using System;
 using System.Drawing;
 
 
@@ -12,10 +13,22 @@ namespace WindowsFormsCars
         /// Ширина отрисовки автомобиля
         /// </summary>
         private const int carHeight = 80;
+
         /// <summary>
         /// Максимальная скорость
         /// </summary>
 
+
+        public Car(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
 
         public Car(int maxSpeed, float weight, Color mainColor)
         {
@@ -23,6 +36,7 @@ namespace WindowsFormsCars
             Weight = weight;
             MainColor = mainColor;
         }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -98,6 +112,10 @@ namespace WindowsFormsCars
             // g.FillRectangle(br, _startPosX, _startPosY + 10, 10, 30);
             //  g.FillRectangle(br, _startPosX + 80, _startPosY + 10, 10, 30);
             // g.FillRectangle(br, _startPosX + 10, _startPosY, 70, 50);
+        }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
