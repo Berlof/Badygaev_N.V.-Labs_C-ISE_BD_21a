@@ -27,27 +27,6 @@ namespace WindowsFormsCars
             parking.Draw(gr);
             pictureBoxParking.Image = bmp;
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-  
-
-                private void buttonSetCar_Click(object sender, EventArgs e)
-                {
-                    
-                }        
-        /// <summary>
-        /// Обработка нажатия кнопки "Забрать"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonTakeCar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
@@ -100,4 +79,4 @@ namespace WindowsFormsCars
             }
         }
     }
-}
+}
