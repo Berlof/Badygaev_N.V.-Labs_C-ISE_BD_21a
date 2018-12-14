@@ -1,7 +1,6 @@
 ﻿using lab1;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
+
 namespace WindowsFormsCars
 {
     /// <summary>
@@ -65,9 +64,7 @@ namespace WindowsFormsCars
                 if (p.CheckFreePlace(i))
                 {
                     p._places.Add(i, car);
-                    p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5,
-                     i % 5 * p._placeSizeHeight + 15, p.PictureWidth,
-                    p.PictureHeight);
+                    p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5, i % 5 * p._placeSizeHeight + 15, p.PictureWidth, p.PictureHeight);
                     return i;
                 }
             }
@@ -127,8 +124,7 @@ namespace WindowsFormsCars
                 for (int j = 0; j < 6; ++j)
                 {
                     //линия рамзетки места
-                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
-                    i * _placeSizeWidth + 110, j * _placeSizeHeight);
+                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
             }
@@ -153,8 +149,7 @@ namespace WindowsFormsCars
                 if (CheckFreePlace(ind))
                 {
                     _places.Add(ind, value);
-                    _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5 *
-                    _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                    _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5 * _placeSizeHeight + 15, PictureWidth, PictureHeight);
                 }
                 else
                 {
@@ -163,4 +158,5 @@ namespace WindowsFormsCars
             }
         }
     }
-}
+}
+
