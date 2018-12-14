@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using lab1;
 using WindowsFormsCars;
@@ -32,8 +26,6 @@ namespace lab1
             panelBlue.MouseDown += panelColor_MouseDown;
             button2.Click += (object sender, EventArgs e) => { Close(); };
         }
-
-        
         private void DrawCar()
         {
             if (car != null)
@@ -60,17 +52,14 @@ namespace lab1
                 eventAddCar += ev;
             }
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
         }
-
         private void labelCar_MouseDown(object sender, MouseEventArgs e)
         {
             labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move |
            DragDropEffects.Copy);
         }
-
         private void panelCar_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -126,26 +115,11 @@ namespace lab1
         }
         private void labelBuldozer_MouseDown(object sender, MouseEventArgs e)
         {
-            labelBuldozer.DoDragDrop(labelBuldozer.Text, DragDropEffects.Move |
-DragDropEffects.Copy);
-
+            labelBuldozer.DoDragDrop(labelBuldozer.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
-
-        
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-        
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
-            (sender as Control).DoDragDrop((sender as Control).BackColor,
-           DragDropEffects.Move | DragDropEffects.Copy);
+            (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
         }
         /// <summary>
         /// Принимаем дополнительный цвет
@@ -153,14 +127,12 @@ DragDropEffects.Copy);
         /// <param name="sender"></par
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
-
         }
         //Добавление машины
         private void button1_Click(object sender, EventArgs e)
         {
             eventAddCar?.Invoke(car);
             Close();
-
         }
         private void labelDopColor_DragEnter(object sender, DragEventArgs e)
         {
@@ -174,5 +146,4 @@ DragDropEffects.Copy);
             }
         }
     }
-
 }
