@@ -7,20 +7,8 @@ using System.Threading.Tasks;
 
 namespace lab1
 {
-
     class bulldozer
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-
-        }
-        /// <summary>
-        /// Левая координата отрисовки автомобиля
-        /// </summary>
         private float _startPosX;
         /// <summary>
         /// Правая кооридната отрисовки автомобиля
@@ -152,32 +140,14 @@ namespace lab1
                     n++;
                     g.DrawLine(pen, _startPosX + 70, _startPosY + 20, _startPosX + 95 + n, _startPosY + 60);
                 }
-                Brush spoiler = new SolidBrush(DopColor);
-                
+                Brush spoiler = new SolidBrush(DopColor);   
             }
-
             // теперь отрисуем основной кузов автомобиля
             //границы автомобиля
             g.DrawRectangle(pen, _startPosX , _startPosY, 50, 15);
             g.DrawRectangle(pen, _startPosX, _startPosY, 50, 40);
             g.DrawEllipse(pen, _startPosX - 10, _startPosY+40, 100, 25);
             g.DrawRectangle(pen, _startPosX + 50, _startPosY +15, 20, 25);
-            
-
-            
-            
-            //g.DrawEllipse(pen, _startPosX, _startPosY, 140, 40);
-            //g.DrawEllipse(pen, _startPosX, _startPosY + 30, 20, 20);
-            //g.DrawEllipse(pen, _startPosX + 70, _startPosY, 20, 20);
-            //g.DrawEllipse(pen, _startPosX + 70, _startPosY + 30, 20, 20);
-            //g.DrawRectangle(pen, _startPosX - 1, _startPosY + 10, 10, 30);
-            //g.DrawRectangle(pen, _startPosX + 80, _startPosY + 10, 10, 30);
-            //g.DrawRectangle(pen, _startPosX + 10, _startPosY - 1, 70, 52);
-            //задние фары
-            
-
-            // g.FillEllipse(brRed, _startPosX, _startPosY, 20, 20);
-            //  g.FillEllipse(brRed, _startPosX, _startPosY + 30, 20, 20);
             //передние фары
             Brush brYellow = new SolidBrush(Color.Yellow);
              
@@ -187,16 +157,7 @@ namespace lab1
             g.FillRectangle(brBlue, _startPosX, _startPosY, 50, 15);
             Brush brBlack = new SolidBrush(Color.Black);
             g.FillEllipse(brBlack, _startPosX - 10, _startPosY + 40, 100, 25);
-
-            //кузов
-            // Brush br = new SolidBrush(MainColor);
-            // g.FillRectangle(br, _startPosX, _startPosY + 10, 10, 30);
-            //  g.FillRectangle(br, _startPosX + 80, _startPosY + 10, 10, 30);
-            // g.FillRectangle(br, _startPosX + 10, _startPosY, 70, 50);
-
-
         }
     }
-
 }
 
