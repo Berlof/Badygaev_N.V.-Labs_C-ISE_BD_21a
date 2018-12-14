@@ -1,7 +1,6 @@
 ﻿using lab1;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
+
 namespace WindowsFormsCars
 {
     /// <summary>
