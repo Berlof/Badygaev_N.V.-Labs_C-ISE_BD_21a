@@ -7,7 +7,6 @@ namespace lab1
 {
     public partial class Form1 : Form
     {
-
         private Itrandport car;
 
         public Form1()
