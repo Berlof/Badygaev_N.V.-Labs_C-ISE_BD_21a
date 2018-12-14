@@ -26,8 +26,7 @@ namespace WindowsFormsCars
         public FormParking()
         {
             InitializeComponent();
-            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width,
-           pictureBoxParking.Height);
+            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width, pictureBoxParking.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
@@ -56,8 +55,7 @@ namespace WindowsFormsCars
                     int place = parking[listBoxLevels.SelectedIndex] + car;
                     if (place == -1)
                     {
-                        MessageBox.Show("Нет свободных мест", "Ошибка",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Draw();
                 }
@@ -74,13 +72,11 @@ namespace WindowsFormsCars
                     ColorDialog dialogDop = new ColorDialog();
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        var car = new bulldozer(100, 1000, dialog.Color, dialogDop.Color,
-                       true);
+                        var car = new bulldozer(100, 1000, dialog.Color, dialogDop.Color, true);
                         int place = parking[listBoxLevels.SelectedIndex] + car;
                         if (place == -1)
                         {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         Draw();
                     }
@@ -98,18 +94,15 @@ namespace WindowsFormsCars
                    Convert.ToInt32(maskedTextBox.Text);
                     if (car != null)
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                       pictureBoxTakeCar.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(5, 5, pictureBoxTakeCar.Width,
-                       pictureBoxTakeCar.Height);
+                        car.SetPosition(5, 5, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         car.DrawCar(gr);
                         pictureBoxTakeCar.Image = bmp;
                     }
                     else
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                       pictureBoxTakeCar.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         pictureBoxTakeCar.Image = bmp;
                     }
                     Draw();
@@ -125,7 +118,6 @@ namespace WindowsFormsCars
         {
             Draw();
         }
-
         private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Draw();
@@ -163,13 +155,11 @@ namespace WindowsFormsCars
             {
                 if (parking.SaveData(saveFileDialog.FileName))
                 {
-                    MessageBox.Show("Сохранение прошло успешно", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -184,13 +174,11 @@ namespace WindowsFormsCars
             {
                 if (parking.LoadData(openFileDialog.FileName))
                 {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Draw();
             }
