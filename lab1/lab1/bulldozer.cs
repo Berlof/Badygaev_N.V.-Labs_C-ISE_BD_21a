@@ -20,12 +20,10 @@ namespace lab1
         /// <param name="frontLadle">Признак наличия переднего ковша</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
-        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool
-       frontLadle) : base(maxSpeed, weight, mainColor)
+        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontLadle) : base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
             FrontLadle = frontLadle;
-
         }
         /// <summary>
         /// Установка позиции автомобиля
@@ -34,11 +32,8 @@ namespace lab1
         /// <param name="y">Координата Y</param>
         /// <param name="width">Ширина картинки</param>
         /// <param name="height">Высота картинки</param>
-
-
         public override void DrawCar(Graphics g)
         {
-
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовк автомобиля на него "легла")
             if (FrontLadle)
             {
