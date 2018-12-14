@@ -8,7 +8,6 @@ using static lab1.bulldozer;
 
 namespace lab1
 {
-
     public interface Itrandport
     {
         /// <summary>
@@ -35,5 +34,4 @@ namespace lab1
         /// <param name="color"></param>
         void SetMainColor(Color color);
     }
-
 }
