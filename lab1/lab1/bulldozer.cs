@@ -8,7 +8,6 @@ using WindowsFormsCars;
 
 namespace lab1
 {
-   
     class bulldozer : Car
     {
         public Color DopColor { private set; get; }
@@ -26,9 +25,7 @@ namespace lab1
         /// <param name="frontLadle">Признак наличия переднего ковша</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
-        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool
-       frontLadle) :
-            base(maxSpeed, weight, mainColor)
+        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontLadle) : base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
             FrontLadle = frontLadle;
@@ -44,7 +41,6 @@ namespace lab1
                 MainColor = Color.FromName(strs[2]);
                 DopColor = Color.FromName(strs[3]);
                 FrontLadle = Convert.ToBoolean(strs[4]);
-
             }
         }
         /// <summary>
@@ -77,7 +73,8 @@ namespace lab1
         public void SetDopColor(Color color)
         {
             DopColor = color;
-        }        public override string ToString()
+        }
+        public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + FrontLadle;
         }
