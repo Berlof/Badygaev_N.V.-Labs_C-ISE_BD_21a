@@ -21,8 +21,7 @@ namespace lab1
         /// <param name="frontLadle">Признак наличия переднего ковша</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
-        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool
-       frontLadle) : base(maxSpeed, weight, mainColor)
+        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontLadle) : base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
             FrontLadle = frontLadle;
