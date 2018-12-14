@@ -68,9 +68,9 @@ namespace lab1
 
         private void labelCar_MouseDown(object sender, MouseEventArgs e)
         {
-            labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move |
-           DragDropEffects.Copy);
-        }
+            labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
         private void panelCar_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -126,30 +126,18 @@ namespace lab1
         }
         private void labelBuldozer_MouseDown(object sender, MouseEventArgs e)
         {
-            labelBuldozer.DoDragDrop(labelBuldozer.Text, DragDropEffects.Move |
-DragDropEffects.Copy);
-        }
-
-        
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
+            labelBuldozer.DoDragDrop(labelBuldozer.Text, DragDropEffects.Move | DragDropEffects.Copy);
 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
-        
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
-            (sender as Control).DoDragDrop((sender as Control).BackColor,
-           DragDropEffects.Move | DragDropEffects.Copy);
+            (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
         }
-        /// <summary>
-        /// Принимаем дополнительный цвет
-        /// </summary>
-        /// <param name="sender"></par        private void labelDopColor_DragDrop(object sender, DragEventArgs e)
+        private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
 
         }
@@ -157,7 +145,7 @@ DragDropEffects.Copy);
         private void button1_Click(object sender, EventArgs e)
         {
             eventAddCar?.Invoke(car);
-            Close();
+            Close();
         }
         private void labelDopColor_DragEnter(object sender, DragEventArgs e)
         {
