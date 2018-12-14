@@ -54,15 +54,13 @@ namespace lab1
         /// <param name="frontLadle">Признак наличия переднего ковша</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
-        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool
-       frontLadle)
+        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontLadle)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
             DopColor = dopColor;
-            FrontLadle = frontLadle;
-            
+            FrontLadle = frontLadle;    
         }
         /// <summary>
         /// Установка позиции автомобиля
@@ -125,7 +123,7 @@ namespace lab1
         {
             Pen pen = new Pen(Color.Black);
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовк автомобиля на него "легла")
- if (FrontLadle)
+            if (FrontLadle)
             {
                 g.DrawLine(pen, _startPosX + 70, _startPosY + 20, _startPosX + 95, _startPosY + 60);
                 g.DrawLine(pen, _startPosX + 95, _startPosY + 60, _startPosX + 105, _startPosY + 60);
