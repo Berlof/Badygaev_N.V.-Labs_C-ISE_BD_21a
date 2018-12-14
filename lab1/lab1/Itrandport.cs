@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WindowsFormsCars;
-using static lab1.bulldozer;
 
 namespace lab1
 {
@@ -36,5 +30,4 @@ namespace lab1
         /// <param name="color"></param>
         void SetMainColor(Color color);
     }
-
 }
