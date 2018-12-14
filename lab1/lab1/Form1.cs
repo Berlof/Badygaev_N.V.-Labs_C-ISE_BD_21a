@@ -20,12 +20,6 @@ namespace lab1
             car.DrawCar(gr);
             pictureBoxBulldozer.Image = bmp;
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Создать"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -44,11 +38,6 @@ namespace lab1
             Draw();
 
         }
-        /// <summary>
-        /// Обработка нажатия кнопок управления
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonMove_Click(object sender, EventArgs e)
         {
             //получаем имя кнопки
