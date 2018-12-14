@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsCars;
 
@@ -13,17 +7,12 @@ namespace lab1
 {
     public partial class Form1 : Form
     {
-
-
-        private Itrandport car;
-
-
-
+        private Itrandport car;\
+        
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
@@ -35,7 +24,8 @@ namespace lab1
         /// Обработка нажатия кнопки "Создать"
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param>
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
