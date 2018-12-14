@@ -1,6 +1,5 @@
 using System.Drawing;
 
-
 namespace lab1
 { 
     public class Parking<T> where T : class, Itrandport
@@ -112,6 +111,6 @@ namespace lab1
             }
             g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
         }
-    }
+     }
   }
 }
