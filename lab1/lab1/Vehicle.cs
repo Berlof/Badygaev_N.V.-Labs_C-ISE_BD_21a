@@ -1,7 +1,6 @@
 ﻿using lab1;
 using System.Drawing;
 
-
 namespace WindowsFormsCars
 {
     public abstract class Vehicle : Itrandport
