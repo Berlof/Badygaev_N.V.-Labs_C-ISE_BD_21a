@@ -23,8 +23,7 @@ namespace WindowsFormsCars
         public FormParking()
         {
             InitializeComponent();
-            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width,
-           pictureBoxParking.Height);
+            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width, pictureBoxParking.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
@@ -53,8 +52,7 @@ namespace WindowsFormsCars
                     int place = parking[listBoxLevels.SelectedIndex] + car;
                     if (place == -1)
                     {
-                        MessageBox.Show("Нет свободных мест", "Ошибка",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Draw();
                 }
@@ -71,13 +69,11 @@ namespace WindowsFormsCars
                     ColorDialog dialogDop = new ColorDialog();
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        var car = new bulldozer(100, 1000, dialog.Color, dialogDop.Color,
-                       true);
+                        var car = new bulldozer(100, 1000, dialog.Color, dialogDop.Color, true);
                         int place = parking[listBoxLevels.SelectedIndex] + car;
                         if (place == -1)
                         {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         Draw();
                     }
@@ -91,22 +87,18 @@ namespace WindowsFormsCars
             {
                 if (maskedTextBox.Text != "")
                 {
-                    var car = parking[listBoxLevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBox.Text);
+                    var car = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
                     if (car != null)
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                       pictureBoxTakeCar.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(5, 5, pictureBoxTakeCar.Width,
-                       pictureBoxTakeCar.Height);
+                        car.SetPosition(5, 5, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         car.DrawCar(gr);
                         pictureBoxTakeCar.Image = bmp;
                     }
                     else
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                       pictureBoxTakeCar.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         pictureBoxTakeCar.Image = bmp;
                     }
                     Draw();
