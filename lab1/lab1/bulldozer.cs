@@ -5,7 +5,6 @@ namespace lab1
 {
     class bulldozer : Car
     {
-
         public Color DopColor { private set; get; }
         /// <summary>
         /// Признак наличия переднего ковша
@@ -21,8 +20,7 @@ namespace lab1
         /// <param name="frontLadle">Признак наличия переднего ковша</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
-        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool
-       frontLadle) : base(maxSpeed, weight, mainColor)
+        public bulldozer(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontLadle) : base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
             FrontLadle = frontLadle;
@@ -35,11 +33,8 @@ namespace lab1
         /// <param name="y">Координата Y</param>
         /// <param name="width">Ширина картинки</param>
         /// <param name="height">Высота картинки</param>
-
-
         public override void DrawCar(Graphics g)
         {
-
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовк автомобиля на него "легла")
             if (FrontLadle)
             {
@@ -54,8 +49,6 @@ namespace lab1
                     n++;
                     g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 95 + n, _startPosY + 60);
                 }
-
-
             }
             base.DrawCar(g);
         }
