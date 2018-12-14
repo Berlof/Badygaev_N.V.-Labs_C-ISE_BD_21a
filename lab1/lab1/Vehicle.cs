@@ -1,11 +1,6 @@
 ﻿using lab1;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using static lab1.bulldozer;
+
 
 namespace WindowsFormsCars
 {
@@ -47,11 +42,8 @@ namespace WindowsFormsCars
             _pictureWidth = width;
             _pictureHeight = height;
         }
-
         public abstract void DrawCar(Graphics g);
 
         public abstract void MoveTransport(Direction direction);
-
-
     }
 }
