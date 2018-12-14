@@ -8,14 +8,6 @@ using WindowsFormsCars;
 
 namespace lab1
 {
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-
     class bulldozer : Car
     {
 
@@ -75,7 +67,8 @@ namespace lab1
         public void SetDopColor(Color color)
         {
             DopColor = color;
-        }
+        }
+
     }
 
 }
