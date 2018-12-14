@@ -63,14 +63,14 @@ namespace lab1
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void labelCar_MouseDown(object sender, MouseEventArgs e)
         {
             labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move |
            DragDropEffects.Copy);
-        }
+        }
+
         private void panelCar_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -127,7 +127,8 @@ namespace lab1
         private void labelBuldozer_MouseDown(object sender, MouseEventArgs e)
         {
             labelBuldozer.DoDragDrop(labelBuldozer.Text, DragDropEffects.Move |
-DragDropEffects.Copy);
+DragDropEffects.Copy);
+
         }
 
         
@@ -149,7 +150,8 @@ DragDropEffects.Copy);
         /// <summary>
         /// Принимаем дополнительный цвет
         /// </summary>
-        /// <param name="sender"></par        private void labelDopColor_DragDrop(object sender, DragEventArgs e)
+        /// <param name="sender"></par
+        private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
 
         }
@@ -157,7 +159,8 @@ DragDropEffects.Copy);
         private void button1_Click(object sender, EventArgs e)
         {
             eventAddCar?.Invoke(car);
-            Close();
+            Close();
+
         }
         private void labelDopColor_DragEnter(object sender, DragEventArgs e)
         {

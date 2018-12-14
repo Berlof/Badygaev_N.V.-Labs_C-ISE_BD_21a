@@ -66,7 +66,7 @@ namespace WindowsFormsCars
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -85,10 +85,9 @@ namespace WindowsFormsCars
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var car = level[i];
-                            if (car != null)
+                            try
                             {
-                                //если место не пустое
+                                var car = level[i];
                                 //Записываем тип мшаины
                                 if (car.GetType().Name == "Car")
                                 {
@@ -101,11 +100,11 @@ namespace WindowsFormsCars
                                 //Записываемые параметры
                                 WriteToFile(car + Environment.NewLine, fs);
                             }
+                            finally { }
                         }
                     }
                 }
             }
-            return true;
         }
         /// <summary>
         /// Метод записи информации в файл
@@ -122,11 +121,11 @@ namespace WindowsFormsCars
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             string bufferTextFromFile = "";
             using (FileStream fs = new FileStream(filename, FileMode.Open))
@@ -156,7 +155,7 @@ namespace WindowsFormsCars
             else
             {
                 //если нет такой записи, то это не те данные
-                return false;
+                throw new Exception("Неверный формат файла");
             }
             int counter = -1;
             Itrandport car = null;
@@ -167,8 +166,7 @@ namespace WindowsFormsCars
                 {
                     //начинаем новый уровень
                     counter++;
-                    parkingStages.Add(new Parking<Itrandport>(countPlaces, pictureWidth,
-                    pictureHeight));
+                    parkingStages.Add(new Parking<Itrandport>(countPlaces, pictureWidth, pictureHeight));
                     continue;
                 }
                 if (string.IsNullOrEmpty(strs[i]))
@@ -185,7 +183,6 @@ namespace WindowsFormsCars
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = car;
             }
-            return true;
         }
-    }
-}
+    }
+}

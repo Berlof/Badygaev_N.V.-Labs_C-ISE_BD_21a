@@ -8,18 +8,9 @@ using WindowsFormsCars;
 
 namespace lab1
 {
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-
+   
     class bulldozer : Car
     {
-
-
         public Color DopColor { private set; get; }
         /// <summary>
         /// Признак наличия переднего ковша
@@ -56,12 +47,6 @@ namespace lab1
 
             }
         }
-
-
-
-
-
-
         /// <summary>
         /// Установка позиции автомобиля
         /// </summary>
@@ -69,8 +54,6 @@ namespace lab1
         /// <param name="y">Координата Y</param>
         /// <param name="width">Ширина картинки</param>
         /// <param name="height">Высота картинки</param>
-
-
         public override void DrawCar(Graphics g)
         {
 
@@ -88,8 +71,6 @@ namespace lab1
                     n++;
                     g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 95 + n, _startPosY + 60);
                 }
-
-
             }
             base.DrawCar(g);
         }
@@ -101,6 +82,5 @@ namespace lab1
             return base.ToString() + ";" + DopColor.Name + ";" + FrontLadle;
         }
     }
-
 }
 

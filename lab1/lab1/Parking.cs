@@ -58,7 +58,7 @@ namespace WindowsFormsCars
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new ParkingOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -88,7 +88,7 @@ namespace WindowsFormsCars
                 p._places.Remove(index);
                 return car;
             }
-            return null;
+            throw new ParkingNotFoundException(index);
         }
         /// <summary>
         /// Метод проверки заполнености парковочного места (ячейки массива)
@@ -122,9 +122,11 @@ namespace WindowsFormsCars
             //границы праковки
             g.DrawRectangle(pen, 0, 0, (_maxCount / 5) * _placeSizeWidth, 480);
             for (int i = 0; i < _maxCount / 5; i++)
-            {//отрисовываем, по 5 мест на линии
+            {
+                //отрисовываем, по 5 мест на линии
                 for (int j = 0; j < 6; ++j)
-                {//линия рамзетки места
+                {
+                    //линия рамзетки места
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }
@@ -144,7 +146,7 @@ namespace WindowsFormsCars
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new ParkingNotFoundException(ind);
             }
             set
             {
@@ -153,6 +155,10 @@ namespace WindowsFormsCars
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5 *
                     _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new ParkingOccupiedPlaceException(ind);
                 }
             }
         }
