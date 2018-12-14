@@ -77,8 +77,4 @@ namespace lab1
             Draw();
         }
     }
-
-
-
-
 }
