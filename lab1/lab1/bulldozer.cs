@@ -35,11 +35,8 @@ namespace lab1
         /// <param name="y">Координата Y</param>
         /// <param name="width">Ширина картинки</param>
         /// <param name="height">Высота картинки</param>
-
-
         public override void DrawCar(Graphics g)
         {
-
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовк автомобиля на него "легла")
             if (FrontLadle)
             {
@@ -54,8 +51,6 @@ namespace lab1
                     n++;
                     g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 95 + n, _startPosY + 60);
                 }
-
-
             }
             base.DrawCar(g);
         }
@@ -63,8 +58,6 @@ namespace lab1
         {
             DopColor = color;
         }
-
     }
-
 }
 
