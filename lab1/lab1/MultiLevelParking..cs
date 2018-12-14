@@ -1,10 +1,5 @@
 ﻿using lab1;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 namespace WindowsFormsCars
 {
     /// <summary>
@@ -41,8 +36,7 @@ namespace WindowsFormsCars
             this.pictureHeight = pictureHeight;
             for (int i = 0; i < countStages; ++i)
             {
-                parkingStages.Add(new Parking<Itrandport>(countPlaces, pictureWidth,
-               pictureHeight));
+                parkingStages.Add(new Parking<Itrandport>(countPlaces, pictureWidth, pictureHeight));
             }
         }
         /// <summary>
@@ -77,8 +71,7 @@ namespace WindowsFormsCars
                 using (BufferedStream bs = new BufferedStream(fs))
                 {
                     //Записываем количество уровней
-                    WriteToFile("CountLeveles:" + parkingStages.Count +
-                   Environment.NewLine, fs);
+                    WriteToFile("CountLeveles:" + parkingStages.Count + Environment.NewLine, fs);
                     foreach (var level in parkingStages)
                     {
                         //Начинаем уровень
@@ -185,4 +178,4 @@ namespace WindowsFormsCars
             }
         }
     }
-}
+}
