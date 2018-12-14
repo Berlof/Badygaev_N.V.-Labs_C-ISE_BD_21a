@@ -14,7 +14,7 @@ namespace WindowsFormsCars
         /// <summary>
         /// Форма для добавления
         /// </summary>
-        FormCarConfig form;
+        FormCarConfig form;
         /// <summary>
         /// Количество уровней-парковок
         /// </summary>
@@ -31,7 +31,7 @@ namespace WindowsFormsCars
                 listBoxLevels.Items.Add("Уровень " + (i + 1));
             }
             listBoxLevels.SelectedIndex = 0;
-        }
+        }
         private void Draw()
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -42,11 +42,6 @@ namespace WindowsFormsCars
                 pictureBoxParking.Image = bmp;
             }
         }
-
-
-
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -63,7 +58,7 @@ namespace WindowsFormsCars
                     }
                     Draw();
                 }
-            }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
