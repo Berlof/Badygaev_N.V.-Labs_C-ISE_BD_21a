@@ -144,7 +144,6 @@ namespace lab1
             g.DrawRectangle(pen, _startPosX + 50, _startPosY +15, 20, 25);
             //передние фары
             Brush brYellow = new SolidBrush(Color.Yellow);
-             
             g.FillRectangle(brYellow, _startPosX, _startPosY, 50, 40);
             g.FillRectangle(brYellow, _startPosX + 50, _startPosY + 15, 20, 25);
             Brush brBlue = new SolidBrush(Color.Turquoise);
