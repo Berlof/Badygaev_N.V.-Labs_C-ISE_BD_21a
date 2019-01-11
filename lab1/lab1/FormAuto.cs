@@ -11,7 +11,7 @@ using static lab1.bulldozer;
 
 namespace lab1
 {
-    public partial class Form1 : Form
+    public partial class FormAuto : Form
     {
         private bulldozer bulldozer;
 
