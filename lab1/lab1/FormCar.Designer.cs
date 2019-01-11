@@ -1,6 +1,6 @@
 ﻿namespace lab1
 {
-    partial class Form1
+    partial class FormCar
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -129,7 +129,7 @@
             this.buttonCreateCar.UseVisualStyleBackColor = true;
             this.buttonCreateCar.Click += new System.EventHandler(this.buttonCreateCar_Click);
             // 
-            // Form1
+            // FormCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
