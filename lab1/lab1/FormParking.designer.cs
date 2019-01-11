@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.fdg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -53,7 +52,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(777, 155);
+            this.button1.Location = new System.Drawing.Point(801, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -63,7 +62,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(778, 200);
+            this.button2.Location = new System.Drawing.Point(801, 69);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -124,21 +123,11 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // listBoxLevels
-            // 
-            this.listBoxLevels.FormattingEnabled = true;
-            this.listBoxLevels.Location = new System.Drawing.Point(756, 32);
-            this.listBoxLevels.Name = "listBoxLevels";
-            this.listBoxLevels.Size = new System.Drawing.Size(120, 95);
-            this.listBoxLevels.TabIndex = 8;
-            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged_1);
-            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 458);
-            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.label2);
@@ -149,7 +138,6 @@
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "FormParking";
-            this.Load += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.fdg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).EndInit();
@@ -169,6 +157,5 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBoxTakeCar;
-        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
