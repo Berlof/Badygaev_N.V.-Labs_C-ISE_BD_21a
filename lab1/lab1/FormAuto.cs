@@ -9,7 +9,7 @@ namespace lab1
     {
         private Itrandport car;
         
-        public Form1()
+        public FormAuto()
         {
             InitializeComponent();
         }
