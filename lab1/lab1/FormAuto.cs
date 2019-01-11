@@ -10,7 +10,7 @@ namespace lab1
     
         private ITrandport car;
         
-        public Form1()
+        public FormAuto()
         {
             InitializeComponent();
         }
