@@ -7,9 +7,9 @@ namespace lab1
 {
     public partial class FormAuto : Form
     {
-    
+
         private ITrandport car;
-        
+
         public FormAuto()
         {
             InitializeComponent();
