@@ -25,11 +25,13 @@ namespace WindowsFormsCars
         /// Логгер
         /// </summary>
         private Logger logger;
+
         public FormParking()
         {
             InitializeComponent();
             logger = LogManager.GetCurrentClassLogger();
-            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width, pictureBoxParking.Height);
+            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width,
+           pictureBoxParking.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
@@ -62,8 +64,7 @@ namespace WindowsFormsCars
                     }
                     Draw();
                 }
-            }
-
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -102,7 +103,7 @@ namespace WindowsFormsCars
                             car.SetPosition(5, 5, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                             car.DrawCar(gr);
                             pictureBoxTakeCar.Image = bmp;
-                            logger.Info("Изъят автомобиль " + car.ToString() + " с места " +  maskedTextBox.Text);
+                            logger.Info("Изъят автомобиль " + car.ToString() + " с места " + maskedTextBox.Text);
                             Draw();
                         }
                         catch (ParkingNotFoundException ex)
@@ -116,8 +117,7 @@ namespace WindowsFormsCars
                             MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }
-            
+                }   
         }
             /// <summary>
             /// Метод обработки выбора элемента на listBoxs
@@ -128,10 +128,12 @@ namespace WindowsFormsCars
         {
             Draw();
         }
+
         private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Draw();
         }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             form = new FormCarConfig();
@@ -152,12 +154,15 @@ namespace WindowsFormsCars
                 {
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                catch (ParkingAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
         /// <summary>
         /// Обработка нажатия пункта меню "Сохранить"
@@ -171,17 +176,18 @@ namespace WindowsFormsCars
                 try
                 {
                     parking.SaveData(saveFileDialog.FileName);
-                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     logger.Info("Сохранено в файл " + saveFileDialog.FileName);
 
                 }
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-
+            }
         }
         /// <summary>
         /// Обработка нажатия пункта меню "Загрузить"
@@ -195,19 +201,33 @@ namespace WindowsFormsCars
                 try
                 {
                     parking.LoadData(openFileDialog.FileName);
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                     logger.Info("Загружено из файла " + openFileDialog.FileName);
                 }
                 catch (ParkingOccupiedPlaceException ex)
                 {
-                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Draw();
             }
+        }
+        /// <summary>
+        /// Обработка нажатия кнопки "Сортировка"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            parking.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
         }
     }
 }

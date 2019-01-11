@@ -6,6 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -30,9 +31,9 @@
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
             this.fdg = new System.Windows.Forms.GroupBox();
             this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
+            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.fdg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -78,6 +80,13 @@
             this.pictureBoxTakeCar.TabIndex = 0;
             this.pictureBoxTakeCar.TabStop = false;
             // 
+            // maskedTextBox
+            // 
+            this.maskedTextBox.Location = new System.Drawing.Point(51, 36);
+            this.maskedTextBox.Name = "maskedTextBox";
+            this.maskedTextBox.Size = new System.Drawing.Size(71, 20);
+            this.maskedTextBox.TabIndex = 6;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -95,13 +104,6 @@
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "номер";
-            // 
-            // maskedTextBox
-            // 
-            this.maskedTextBox.Location = new System.Drawing.Point(51, 36);
-            this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(71, 20);
-            this.maskedTextBox.TabIndex = 6;
             // 
             // button3
             // 
@@ -174,11 +176,22 @@
             this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "txt file | *.txt";
             // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(820, 197);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(116, 42);
+            this.buttonSort.TabIndex = 11;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 458);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.fdg);
@@ -195,6 +208,7 @@
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -214,5 +228,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button buttonSort;
     }
 }
