@@ -1,10 +1,10 @@
 ﻿using lab1;
 using System.Drawing;
 
-
 namespace WindowsFormsCars
 {
     public abstract class Vehicle : Itrandport
+
     {
         /// <summary>       
         /// Левая координата отрисовки автомобиля  
@@ -43,7 +43,7 @@ namespace WindowsFormsCars
             _pictureHeight = height;
         }
         public abstract void DrawCar(Graphics g);
-
         public abstract void MoveTransport(Direction direction);
+
     }
 }

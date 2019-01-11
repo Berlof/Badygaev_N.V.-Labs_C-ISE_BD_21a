@@ -72,6 +72,7 @@ namespace WindowsFormsCars
             g.FillRectangle(brBlue, _startPosX, _startPosY, 50, 15);
             Brush brBlack = new SolidBrush(Color.Black);
             g.FillEllipse(brBlack, _startPosX - 0, _startPosY + 40, 100, 25);
+
         }
     }
 }
