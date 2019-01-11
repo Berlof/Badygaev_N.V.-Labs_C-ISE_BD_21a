@@ -7,7 +7,6 @@ namespace lab1
 {
     public partial class FormAuto : Form
     {
-
         private ITrandport car;
 
         public FormAuto()
@@ -17,7 +16,6 @@ namespace lab1
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
-            Graphics gr = Graphics.FromImage(bmp);
             car.DrawCar(gr);
             pictureBoxBulldozer.Image = bmp;
         }

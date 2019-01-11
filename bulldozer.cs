@@ -42,6 +42,7 @@ namespace lab1
                 g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 95, _startPosY + 60);
                 g.DrawLine(spoiler, _startPosX + 95, _startPosY + 60, _startPosX + 105, _startPosY + 60);
                 g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 105, _startPosY + 60);
+
                 int n = 0;
                 while (n < 20)
                 {
