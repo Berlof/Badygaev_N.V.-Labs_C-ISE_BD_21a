@@ -1,5 +1,10 @@
 ﻿using lab1;
-
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace WindowsFormsCars
 {
     /// <summary>
@@ -71,29 +76,25 @@ namespace WindowsFormsCars
                 using (BufferedStream bs = new BufferedStream(fs))
                 {
                     //Записываем количество уровней
-                    WriteToFile("CountLeveles:" + parkingStages.Count + Environment.NewLine, fs);
+                    WriteToFile("CountLeveles:" + parkingStages.Count +
+                   Environment.NewLine, fs);
                     foreach (var level in parkingStages)
                     {
                         //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
-                        for (int i = 0; i < countPlaces; i++)
+                        foreach (var car in level)
                         {
-                            try
+                            //Записываем тип мшаины
+                            if (car.GetType().Name == "Car")
                             {
-                                var car = level[i];
-                                //Записываем тип мшаины
-                                if (car.GetType().Name == "Car")
-                                {
-                                    WriteToFile(i + ":Car:", fs);
-                                }
-                                if (car.GetType().Name == "bulldozer")
-                                {
-                                    WriteToFile(i + ":bulldozer:", fs);
-                                }
-                                //Записываемые параметры
-                                WriteToFile(car + Environment.NewLine, fs);
+                                WriteToFile(level.GetKey + ":Car:", fs);
                             }
-                            finally { }
+                            if (car.GetType().Name == "bulldozer")
+                            {
+                                WriteToFile(level.GetKey+ ":bulldozer:", fs);
+                            }
+                            //Записываемые параметры
+                            WriteToFile(car + Environment.NewLine, fs);
                         }
                     }
                 }
@@ -112,9 +113,7 @@ namespace WindowsFormsCars
         /// <summary>
         /// Загрузка нформации по автомобилям на парковках из файла
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        public void LoadData(string filename)
+        /// <param name="filename"></param>        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
@@ -151,6 +150,7 @@ namespace WindowsFormsCars
                 throw new Exception("Неверный формат файла");
             }
             int counter = -1;
+            int counterCar = 0;
             Itrandport car = null;
             for (int i = 1; i < strs.Length; ++i)
             {
@@ -159,6 +159,7 @@ namespace WindowsFormsCars
                 {
                     //начинаем новый уровень
                     counter++;
+                    counterCar = 0;
                     parkingStages.Add(new Parking<Itrandport>(countPlaces, pictureWidth, pictureHeight));
                     continue;
                 }
@@ -174,8 +175,15 @@ namespace WindowsFormsCars
                 {
                     car = new bulldozer(strs[i].Split(':')[2]);
                 }
-                parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = car;
+                parkingStages[counter][counterCar++] = car;
             }
         }
+        /// <summary>
+        /// Сортировка уровней
+        /// </summary>
+        public void Sort()
+        {
+            parkingStages.Sort();
+        }
     }
-}
+}
