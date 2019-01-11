@@ -8,11 +8,12 @@ namespace lab1
     public partial class FormAuto : Form
     {
         private Itrandport car;
-        
+
         public FormAuto()
         {
             InitializeComponent();
         }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
@@ -33,7 +34,8 @@ namespace lab1
         {
             Random rnd = new Random();
             car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
-            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width,
+           pictureBoxBulldozer.Height);
             Draw();
 
         }

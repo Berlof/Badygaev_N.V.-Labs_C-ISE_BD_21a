@@ -2,6 +2,7 @@ using System.Drawing;
 
 namespace lab1
 {
+
     public interface Itrandport
     {
         /// <summary>

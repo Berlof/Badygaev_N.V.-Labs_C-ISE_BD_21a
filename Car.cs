@@ -1,7 +1,5 @@
 ﻿using lab1;
-using System;
 using System.Drawing;
-
 
 namespace WindowsFormsCars
 {
@@ -70,9 +68,6 @@ namespace WindowsFormsCars
         public override void DrawCar(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
-            //границы автомобиля
-            // теперь отрисуем основной кузов автомобиля
-            //границы автомобиля
             g.DrawRectangle(pen, _startPosX, _startPosY, 50, 15);
             g.DrawRectangle(pen, _startPosX, _startPosY, 50, 40);
             g.DrawEllipse(pen, _startPosX - 0, _startPosY + 40, 100, 25);

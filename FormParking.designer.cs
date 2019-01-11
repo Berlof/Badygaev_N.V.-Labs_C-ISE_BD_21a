@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -53,16 +52,20 @@
             // 
             this.pictureBoxParking.Location = new System.Drawing.Point(12, 25);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(722, 430);
+            this.pictureBoxParking.Size = new System.Drawing.Size(757, 430);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             // 
             // fdg
             // 
             this.fdg.Controls.Add(this.pictureBoxTakeCar);
-            this.fdg.Location = new System.Drawing.Point(740, 257);
+            this.fdg.Controls.Add(this.maskedTextBox);
+            this.fdg.Controls.Add(this.label1);
+            this.fdg.Controls.Add(this.label2);
+            this.fdg.Controls.Add(this.button3);
+            this.fdg.Location = new System.Drawing.Point(775, 257);
             this.fdg.Name = "fdg";
-            this.fdg.Size = new System.Drawing.Size(171, 189);
+            this.fdg.Size = new System.Drawing.Size(165, 189);
             this.fdg.TabIndex = 3;
             this.fdg.TabStop = false;
             this.fdg.Text = "groupBox1";
@@ -78,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(817, 257);
+            this.label1.Location = new System.Drawing.Point(77, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 4;
@@ -87,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(775, 293);
+            this.label2.Location = new System.Drawing.Point(6, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 5;
@@ -95,14 +98,14 @@
             // 
             // maskedTextBox
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(830, 286);
+            this.maskedTextBox.Location = new System.Drawing.Point(51, 36);
             this.maskedTextBox.Name = "maskedTextBox";
             this.maskedTextBox.Size = new System.Drawing.Size(71, 20);
             this.maskedTextBox.TabIndex = 6;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(801, 317);
+            this.button3.Location = new System.Drawing.Point(51, 59);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
@@ -113,7 +116,7 @@
             // listBoxLevels
             // 
             this.listBoxLevels.FormattingEnabled = true;
-            this.listBoxLevels.Location = new System.Drawing.Point(756, 32);
+            this.listBoxLevels.Location = new System.Drawing.Point(820, 32);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(120, 95);
             this.listBoxLevels.TabIndex = 8;
@@ -121,7 +124,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(756, 133);
+            this.button1.Location = new System.Drawing.Point(820, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 47);
             this.button1.TabIndex = 9;
@@ -135,7 +138,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(913, 24);
+            this.menuStrip.Size = new System.Drawing.Size(963, 24);
             this.menuStrip.TabIndex = 10;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -151,14 +154,14 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
@@ -175,13 +178,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 458);
+            this.ClientSize = new System.Drawing.Size(963, 458);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBoxLevels);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.maskedTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.fdg);
             this.Controls.Add(this.pictureBoxParking);
             this.Controls.Add(this.menuStrip);
@@ -190,12 +189,12 @@
             this.Load += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.fdg.ResumeLayout(false);
+            this.fdg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

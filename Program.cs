@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsCars;
 
@@ -17,5 +20,5 @@ namespace lab1
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormParking());
         }
-    }
+    }
 }
