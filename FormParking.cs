@@ -18,7 +18,7 @@ namespace WindowsFormsCars
         /// <summary>
         /// Количество уровней-парковок
         /// </summary>
-        /// 
+        ///
         private const int countLevel = 5;
         public FormParking()
         {
