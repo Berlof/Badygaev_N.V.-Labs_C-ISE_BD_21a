@@ -7,7 +7,7 @@ namespace lab1
 {
     public partial class FormAuto : Form
     {
-        private Itrandport car;\
+        private Itrandport car;
         
         public FormAuto()
         {
@@ -33,11 +33,15 @@ namespace lab1
         {
             Random rnd = new Random();
             car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
-            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width,
-           pictureBoxBulldozer.Height);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
             Draw();
 
         }
+        /// <summary>
+        /// Обработка нажатия кнопок управления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonMove_Click(object sender, EventArgs e)
         {
             //получаем имя кнопки
@@ -60,8 +64,4 @@ namespace lab1
             Draw();
         }
     }
-
-
-
-
 }

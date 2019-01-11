@@ -62,7 +62,7 @@ namespace lab1
 
         private void labelCar_MouseDown(object sender, MouseEventArgs e)
         {
-           labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move | DragDropEffects.Copy);
+            labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelCar_DragEnter(object sender, DragEventArgs e)
@@ -123,9 +123,17 @@ namespace lab1
             labelBuldozer.DoDragDrop(labelBuldozer.Text, DragDropEffects.Move | DragDropEffects.Copy);
 
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
             (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+        private void labelDopColor_DragDrop(object sender, DragEventArgs e)
+        {
+
         }
         //Добавление машины
         private void button1_Click(object sender, EventArgs e)
