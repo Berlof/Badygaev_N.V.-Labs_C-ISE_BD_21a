@@ -85,10 +85,9 @@ namespace WindowsFormsCars
             // g.FillEllipse(brRed, _startPosX, _startPosY, 20, 20);
             //  g.FillEllipse(brRed, _startPosX, _startPosY + 30, 20, 20);
             //передние фары
-            Brush brYellow = new SolidBrush(Color.Yellow);
-
-            g.FillRectangle(brYellow, _startPosX, _startPosY, 50, 40);
-            g.FillRectangle(brYellow, _startPosX + 50, _startPosY + 15, 20, 25);
+            Brush ss = new SolidBrush(MainColor);
+            g.FillRectangle(ss, _startPosX, _startPosY, 50, 40);
+            g.FillRectangle(ss, _startPosX + 50, _startPosY + 15, 20, 25);
             Brush brBlue = new SolidBrush(Color.Turquoise);
             g.FillRectangle(brBlue, _startPosX, _startPosY, 50, 15);
             Brush brBlack = new SolidBrush(Color.Black);
@@ -101,4 +100,4 @@ namespace WindowsFormsCars
             // g.FillRectangle(br, _startPosX + 10, _startPosY, 70, 50);
         }
     }
-}
+}

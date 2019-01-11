@@ -1,11 +1,5 @@
 ﻿using lab1;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using static lab1.bulldozer;
 
 namespace WindowsFormsCars
 {
@@ -29,17 +23,14 @@ namespace WindowsFormsCars
         /// Максимальная скорость    
         /// /// </summary>      
         public int MaxSpeed { protected set; get; }
-        /// <summary>       
+        /// <summary>
         /// Вес автомобиля
-        /// </summary>      
+        /// </summary>
         public float Weight { protected set; get; }
-
-        public float Height { protected set; get; }
-        /// <summary>      
-        /// Основной цвет кузова    
-        /// </summary> 
+        /// <summary>
+        /// Основной цвет кузова
+        /// </summary>
         public Color MainColor { protected set; get; }
-
         public void SetPosition(int x, int y, int width, int height)
         {
             _startPosX = x;
@@ -47,11 +38,11 @@ namespace WindowsFormsCars
             _pictureWidth = width;
             _pictureHeight = height;
         }
-
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
+        }
         public abstract void DrawCar(Graphics g);
-
         public abstract void MoveTransport(Direction direction);
-
-
     }
 }

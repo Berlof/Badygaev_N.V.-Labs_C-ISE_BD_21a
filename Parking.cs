@@ -49,7 +49,7 @@ namespace WindowsFormsCars
         }
         /// <summary>
         /// Перегрузка оператора сложения
-        /// /// Логика действия: на парковку добавляется автомобиль
+        /// Логика действия: на парковку добавляется автомобиль
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="car">Добавляемый автомобиль</param>
@@ -90,12 +90,7 @@ namespace WindowsFormsCars
             }
             return null;
         }
-        /// <summary>
-        /// Метод проверки заполнености парковочного места (ячейки массива)
-        /// </summary>
-        /// <param name="index">Номер парковочного места (порядковый номер в массиве)</param>
- /// <returns></returns>
- private bool CheckFreePlace(int index)
+        private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
         }
@@ -119,12 +114,11 @@ namespace WindowsFormsCars
         private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
-            //границы праковки
             g.DrawRectangle(pen, 0, 0, (_maxCount / 5) * _placeSizeWidth, 480);
             for (int i = 0; i < _maxCount / 5; i++)
-            {//отрисовываем, по 5 мест на линии
+            {
                 for (int j = 0; j < 6; ++j)
-                {//линия рамзетки места
+                {
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
                     i * _placeSizeWidth + 110, j * _placeSizeHeight);
                 }

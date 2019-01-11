@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsCars;
@@ -7,13 +7,12 @@ namespace lab1
 {
     public partial class FormAuto : Form
     {
-        private Itrandport car;
+        private Itrandport car;\
         
         public FormAuto()
         {
             InitializeComponent();
         }
-
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
@@ -61,4 +60,8 @@ namespace lab1
             Draw();
         }
     }
+
+
+
+
 }

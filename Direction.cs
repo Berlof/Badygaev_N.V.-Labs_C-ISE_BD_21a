@@ -1,4 +1,10 @@
-namespace lab1
+namespace WindowsFormsCars
 {
-    public enum Direction { Up, Down, Left, Right }
+    public enum Direction
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
 }
