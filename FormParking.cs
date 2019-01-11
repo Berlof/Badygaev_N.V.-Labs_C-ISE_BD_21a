@@ -24,7 +24,8 @@ namespace WindowsFormsCars
                 listBoxLevels.Items.Add("Уровень " + (i + 1));
             }
             listBoxLevels.SelectedIndex = 0;
-        }
+        }
+
         private void Draw()
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -56,7 +57,7 @@ namespace WindowsFormsCars
                     }
                     Draw();
                 }
-            }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -122,4 +123,4 @@ namespace WindowsFormsCars
             Draw();
         }
     }
-}
+}
