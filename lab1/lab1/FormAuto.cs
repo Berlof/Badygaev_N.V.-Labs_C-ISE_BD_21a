@@ -17,7 +17,7 @@ namespace lab1
 
            
       
-        public Form1()
+        public FormAuto()
         {
             InitializeComponent();
         }
