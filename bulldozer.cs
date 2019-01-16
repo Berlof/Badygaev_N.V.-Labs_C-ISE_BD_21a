@@ -10,6 +10,18 @@ namespace Labs
         /// </summary>
         public bool FrontLadle { private set; get; }
         /// <summary>
+        /// Количество полос
+        /// </summary>
+        private int _countLines;
+        /// <summary>
+        /// Количество полос
+        /// </summary>
+        public int CountLines
+        {
+            set { if (value > 0 && value < 4) _countLines = value; }
+            get { return _countLines; }
+        }
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
@@ -24,6 +36,11 @@ namespace Labs
             DopColor = dopColor;
             FrontLadle = frontLadle;
         }
+
+        public bulldozer(string v) : base(v)
+        {
+        }
+
         /// <summary>
         /// Установка позиции автомобиля
         /// </summary>
@@ -56,6 +73,10 @@ namespace Labs
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + FrontLadle + ";"  + ";" + CountLines;
         }
     }
 }

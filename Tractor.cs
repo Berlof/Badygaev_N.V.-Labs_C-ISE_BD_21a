@@ -14,6 +14,8 @@ namespace Labs
         /// Ширина отрисовки автомобиля
         /// </summary>
         private const int carHeight = 80;
+        private string v;
+
         /// <summary>
         /// Максимальная скорость
         /// </summary>
@@ -23,6 +25,12 @@ namespace Labs
             Weight = weight;
             MainColor = mainColor;
         }
+
+        public Tractor(string v)
+        {
+            this.v = v;
+        }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -76,6 +84,9 @@ namespace Labs
             Brush brBlack = new SolidBrush(Color.Black);
             g.FillEllipse(brBlack, _startPosX - 0, _startPosY + 40, 100, 25);
         }
-
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
+        }
     }
 }
