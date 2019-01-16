@@ -83,29 +83,19 @@ namespace Labs
                     {
                         //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
-                        for (int i = 0; i < countPlaces; i++)
+                        foreach (var tractor in level)
                         {
-                            try
+                            //Записываем тип мшаины
+                            if (tractor.GetType().Name == "TractorBase")
                             {
-                                var tractor = level[i];
-
-                                //Записываем тип мшаины
-                                if (tractor.GetType().Name == "TractorBase")
-                                {
-                                    WriteToFile(i + ":TractorBase:", fs);
-                                }
-                                if (tractor.GetType().Name == "Tractor")
-                                {
-                                    WriteToFile(i + ":Tractor:", fs);
-                                }
-                                //Записываемые параметры
-                                WriteToFile(tractor + Environment.NewLine, fs);
+                                WriteToFile(":TractorBase:", fs);
                             }
-                            catch (Exception ex)
+                            if (tractor.GetType().Name == "Tractor")
                             {
-
+                                WriteToFile(":Tractor:", fs);
                             }
-                            finally { }
+                            //Записываемые параметры
+                            WriteToFile(tractor + Environment.NewLine, fs);
                         }
                     }
                 }
@@ -190,6 +180,14 @@ namespace Labs
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = tractor;
             }
+        }
+
+        /// <summary>
+        /// Сортировка уровней
+        /// </summary>
+        public void Sort()
+        {
+            parkingStages.Sort();
         }
     }
 }

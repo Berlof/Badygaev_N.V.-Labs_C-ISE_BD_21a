@@ -1,8 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Labs
 {
-    class bulldozer : Tractor
+    public class bulldozer : Tractor, IComparable<bulldozer>, IEquatable<bulldozer>
     {
         public Color DopColor { private set; get; }
         /// <summary>
@@ -36,8 +37,21 @@ namespace Labs
             DopColor = dopColor;
             FrontLadle = frontLadle;
         }
+        public bulldozer(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 5)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                FrontLadle = Convert.ToBoolean(strs[4]);
 
-        public bulldozer(string v) : base(v)
+            }
+        }
+
+        public bulldozer(int maxSpeed, float weight, Color mainColor) : base(maxSpeed, weight, mainColor)
         {
         }
 
@@ -77,6 +91,74 @@ namespace Labs
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + FrontLadle + ";"  + ";" + CountLines;
+        }
+        public int CompareTo(bulldozer other)
+        {
+            var res = (this is Tractor).CompareTo(other is Tractor);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (FrontLadle != other.FrontLadle)
+            {
+                return FrontLadle.CompareTo(other.FrontLadle);
+            }
+            return 0;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(bulldozer other)
+        {
+            var res = (this as Tractor).Equals(other as Tractor);
+            if (!res)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (FrontLadle != other.FrontLadle)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            bulldozer carObj = obj as bulldozer;
+            if (carObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

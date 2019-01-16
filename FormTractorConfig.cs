@@ -112,7 +112,7 @@ namespace Labs
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Трактор":
-                    tractor = new Tractor(100, 500, Color.White);
+                    tractor = new bulldozer(100, 500, Color.White);
                     break;
                 case "Бульдозер":
                     tractor = new bulldozer(100, 500, Color.White, Color.Black, true);
