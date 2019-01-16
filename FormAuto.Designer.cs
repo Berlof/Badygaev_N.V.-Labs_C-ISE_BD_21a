@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.pictureBoxBulldozer = new System.Windows.Forms.PictureBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonCreateBulldozer = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonCreateTractor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBulldozer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,15 +46,15 @@
             this.pictureBoxBulldozer.TabIndex = 0;
             this.pictureBoxBulldozer.TabStop = false;
             // 
-            // buttonCreate
+            // buttonCreateBulldozer
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(13, 13);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Cоздать";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreateBulldozer.Location = new System.Drawing.Point(13, 13);
+            this.buttonCreateBulldozer.Name = "buttonCreateBulldozer";
+            this.buttonCreateBulldozer.Size = new System.Drawing.Size(143, 23);
+            this.buttonCreateBulldozer.TabIndex = 1;
+            this.buttonCreateBulldozer.Text = "Cоздать бульдозер";
+            this.buttonCreateBulldozer.UseVisualStyleBackColor = true;
+            this.buttonCreateBulldozer.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonUp
             // 
@@ -95,16 +96,27 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateTractor
+            // 
+            this.buttonCreateTractor.Location = new System.Drawing.Point(256, 12);
+            this.buttonCreateTractor.Name = "buttonCreateTractor";
+            this.buttonCreateTractor.Size = new System.Drawing.Size(167, 23);
+            this.buttonCreateTractor.TabIndex = 6;
+            this.buttonCreateTractor.Text = "Создать тракотор";
+            this.buttonCreateTractor.UseVisualStyleBackColor = true;
+            this.buttonCreateTractor.Click += new System.EventHandler(this.buttonCreateTractor_Click);
+            // 
             // FormAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 552);
+            this.Controls.Add(this.buttonCreateTractor);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.buttonCreateBulldozer);
             this.Controls.Add(this.pictureBoxBulldozer);
             this.Name = "FormAuto";
             this.Text = "Грузовик";
@@ -116,10 +128,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxBulldozer;
-        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Button buttonCreateBulldozer;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonCreateTractor;
     }
 }
