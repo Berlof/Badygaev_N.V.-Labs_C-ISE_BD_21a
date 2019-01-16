@@ -54,8 +54,11 @@
     <Compile Include="FormAuto.Designer.cs">
       <DependentUpon>FormAuto.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tractor.cs" />
+    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormAuto.resx">
       <DependentUpon>FormAuto.cs</DependentUpon>
     </EmbeddedResource>

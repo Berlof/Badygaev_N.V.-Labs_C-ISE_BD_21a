@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Labs
 {
     public partial class FormAuto : Form
     {
-        private bulldozer bulldozer;
+        private ITransport tractor;
+
         public FormAuto()
         {
             InitializeComponent();
@@ -21,15 +16,15 @@ namespace Labs
         {
             Bitmap bmp = new Bitmap(pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            bulldozer.DrawCar(gr);
+            tractor.DrawCar(gr);
             pictureBoxBulldozer.Image = bmp;
         }
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            bulldozer = new bulldozer(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+            tractor = new bulldozer(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
            Color.Yellow, true);
-            bulldozer.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
+            tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width, pictureBoxBulldozer.Height);
             Draw();
         }
 
@@ -40,18 +35,27 @@ namespace Labs
             switch (name)
             {
                 case "buttonUp":
-                    bulldozer.MoveTransport(Direction.Up);
+                    tractor.MoveTransport(Direction.Up);
                     break;
                 case "buttonDown":
-                    bulldozer.MoveTransport(Direction.Down);
+                    tractor.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    bulldozer.MoveTransport(Direction.Left);
+                    tractor.MoveTransport(Direction.Left);
                     break;
                 case "buttonRight":
-                    bulldozer.MoveTransport(Direction.Right);
+                    tractor.MoveTransport(Direction.Right);
                     break;
             }
+            Draw();
+        }
+
+        private void buttonCreateTractor_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            tractor = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBulldozer.Width,
+           pictureBoxBulldozer.Height);
             Draw();
         }
     }
