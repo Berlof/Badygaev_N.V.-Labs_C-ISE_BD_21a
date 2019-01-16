@@ -18,6 +18,11 @@ namespace Labs
         MultiLevelParking parking;
 
         /// <summary>
+        /// Форма для добавления
+        /// </summary>
+        FormTractorConfig form;
+
+        /// <summary>
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
@@ -52,55 +57,6 @@ namespace Labs
 
         }
 
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetTractorBase_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var tractor = new Tractor(100, 1000, dialog.Color);
-                    int place = parking[listBoxLevels.SelectedIndex] + tractor;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    Draw();
-                }
-            }
-        }
-        /// <summary>
-        /// Обработка нажатия кнопки "Припарковать гоночный автомобиль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetTractor_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var tractor = new bulldozer(100, 1000, dialog.Color, dialogDop.Color, true);
-                        int place = parking[listBoxLevels.SelectedIndex] + tractor;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
         /// <summary>
         /// Обработка нажатия кнопки "Забрать"
         /// </summary>
@@ -138,6 +94,48 @@ namespace Labs
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
+
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить автомобиль"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSetCar_Click(object sender, EventArgs e)
+        {
+            form = new FormTractorConfig();
+            form.AddEvent(AddCar);
+            form.Show();
+        }
+
+        /// <summary>
+        /// Метод добавления машины
+        /// </summary>
+        /// <param name="car"></param>
+        private void AddCar(ITransport tractor)
+        {
+            if (tractor != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + tractor;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Оборудование не удалось поставить");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Метод обработки выбора элемента на listBoxLevels
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }

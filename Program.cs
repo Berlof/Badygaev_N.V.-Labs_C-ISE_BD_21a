@@ -6,8 +6,11 @@ using System.Windows.Forms;
 
 namespace Labs
 {
+    public delegate void tractorDelegate(ITransport tractor);
+
     static class Program
     {
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

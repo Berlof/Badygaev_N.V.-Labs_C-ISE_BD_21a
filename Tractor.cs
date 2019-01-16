@@ -66,15 +66,16 @@ namespace Labs
             //границы автомобиля
             g.DrawRectangle(pen, _startPosX, _startPosY, 50, 15);
             g.DrawRectangle(pen, _startPosX, _startPosY, 50, 40);
-            g.DrawEllipse(pen, _startPosX - 10, _startPosY + 40, 100, 25);
+            g.DrawEllipse(pen, _startPosX - 0, _startPosY + 40, 100, 25);
             g.DrawRectangle(pen, _startPosX + 50, _startPosY + 15, 20, 25);
-            Brush brYellow = new SolidBrush(Color.Yellow);
-            g.FillRectangle(brYellow, _startPosX, _startPosY, 50, 40);
-            g.FillRectangle(brYellow, _startPosX + 50, _startPosY + 15, 20, 25);
+            Brush ss = new SolidBrush(MainColor);
+            g.FillRectangle(ss, _startPosX, _startPosY, 50, 40);
+            g.FillRectangle(ss, _startPosX + 50, _startPosY + 15, 20, 25);
             Brush brBlue = new SolidBrush(Color.Turquoise);
             g.FillRectangle(brBlue, _startPosX, _startPosY, 50, 15);
             Brush brBlack = new SolidBrush(Color.Black);
-            g.FillEllipse(brBlack, _startPosX - 10, _startPosY + 40, 100, 25);
+            g.FillEllipse(brBlack, _startPosX - 0, _startPosY + 40, 100, 25);
         }
+
     }
 }

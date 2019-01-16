@@ -36,11 +36,11 @@ namespace Labs
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовк автомобиля на него "легла")
             if (FrontLadle)
             {
+                // Brush spoiler = new SolidBrush(DopColor);
                 Pen spoiler = new Pen(DopColor);
                 g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 95, _startPosY + 60);
                 g.DrawLine(spoiler, _startPosX + 95, _startPosY + 60, _startPosX + 105, _startPosY + 60);
                 g.DrawLine(spoiler, _startPosX + 70, _startPosY + 20, _startPosX + 105, _startPosY + 60);
-
                 int n = 0;
                 while (n < 20)
                 {
@@ -49,6 +49,13 @@ namespace Labs
                 }
             }
             base.DrawCar(g);
+        }
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }
