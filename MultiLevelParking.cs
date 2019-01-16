@@ -42,8 +42,7 @@ namespace Labs
             this.pictureHeight = pictureHeight;
             for (int i = 0; i < countStages; ++i)
             {
-                parkingStages.Add(new Parking<ITransport>(countPlaces, pictureWidth,
-               pictureHeight));
+                parkingStages.Add(new Parking<ITransport>(countPlaces, pictureWidth, pictureHeight));
             }
         }
         /// <summary>
@@ -68,7 +67,7 @@ namespace Labs
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -86,10 +85,10 @@ namespace Labs
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var tractor = level[i];
-                            if (tractor != null)
+                            try
                             {
-                                //если место не пустое
+                                var tractor = level[i];
+
                                 //Записываем тип мшаины
                                 if (tractor.GetType().Name == "TractorBase")
                                 {
@@ -102,11 +101,15 @@ namespace Labs
                                 //Записываемые параметры
                                 WriteToFile(tractor + Environment.NewLine, fs);
                             }
+                            catch (Exception ex)
+                            {
+
+                            }
+                            finally { }
                         }
                     }
                 }
             }
-            return true;
         }
 
         /// <summary>
@@ -125,11 +128,11 @@ namespace Labs
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             string bufferTextFromFile = "";
             using (FileStream fs = new FileStream(filename, FileMode.Open))
@@ -159,7 +162,7 @@ namespace Labs
             else
             {
                 //если нет такой записи, то это не те данные
-                return false;
+                throw new Exception("Неверный формат файла");
             }
             int counter = -1;
             ITransport tractor = null;
@@ -187,7 +190,6 @@ namespace Labs
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = tractor;
             }
-            return true;
         }
     }
 }
