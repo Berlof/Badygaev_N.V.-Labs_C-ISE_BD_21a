@@ -5,7 +5,7 @@ namespace AbstractMotorFactoryServiceDAL.ViewModels
     public class ProductionViewModel
     {
         public int Id { get; set; }
-
+        
         public int CustomerId { get; set; }
         [DisplayName("ФИО покупателя")]
         public string CustomerFIO { get; set; }
@@ -23,5 +23,6 @@ namespace AbstractMotorFactoryServiceDAL.ViewModels
         public string TimeCreate { get; set; }
         [DisplayName("Время начала выполнения")]
         public string TimeImplement { get; set; }
+
     }
 }
