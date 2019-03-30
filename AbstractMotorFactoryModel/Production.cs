@@ -23,5 +23,9 @@ namespace AbstractMotorFactoryModel
         public DateTime TimeCreate { get; set; }
 
         public DateTime? TimeImplement { get; set; }
+
+        public virtual Customer Customer { get; set; }
+
+        public virtual Engine Engine { get; set; }
     }
 }

@@ -15,5 +15,9 @@ namespace AbstractMotorFactoryModel
         public int DetailId { get; set; }
 
         public int Number { get; set; }
+
+        public virtual Detail Detail { get; set; }
+
+        public virtual Engine Engine { get; set; }
     }
 }

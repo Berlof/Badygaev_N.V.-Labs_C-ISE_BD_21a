@@ -12,5 +12,7 @@ namespace AbstractMotorFactoryModel
         public int StoreId { get; set; }
         public int DetailId { get; set; }
         public int Number { get; set; }
+        public virtual Store Store { get; set; }
+        public virtual Engine Engine { get; set; }
     }
 }

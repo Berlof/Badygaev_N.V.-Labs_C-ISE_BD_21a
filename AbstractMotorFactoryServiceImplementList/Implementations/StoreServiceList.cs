@@ -23,7 +23,7 @@ public class StoreServiceList : IStoreService
         .Select(rec => new StoreViewModel
         {
             Id = rec.Id,
-            StoreName = rec.StoreName,
+            StoreName = rec.StockName,
             StoreDetails = source.StoreDetails
         .Where(recPC => recPC.StoreId == rec.Id)
        .Select(recPC => new StoreDetailViewModel
@@ -49,7 +49,7 @@ public class StoreServiceList : IStoreService
             return new StoreViewModel
             {
                 Id = element.Id,
-                StoreName = element.StoreName,
+                StoreName = element.StockName,
                 StoreDetails = source.StoreDetails
             .Where(recPC => recPC.StoreId == element.Id)
            .Select(recPC => new StoreDetailViewModel
@@ -69,7 +69,7 @@ public class StoreServiceList : IStoreService
     }
     public void AddElement(StoreBindingModel model)
     {
-        Store element = source.Stores.FirstOrDefault(rec => rec.StoreName == model.StoreName);
+        Store element = source.Stores.FirstOrDefault(rec => rec.StockName == model.StoreName);
             if (element != null)
             {
                 throw new Exception("Уже есть склад с таким названием");
@@ -78,13 +78,13 @@ public class StoreServiceList : IStoreService
             source.Stores.Add(new Store
             {
                 Id = maxId + 1,
-                StoreName = model.StoreName
+                StockName = model.StoreName
             });
         }
         public void UpdElement(StoreBindingModel model)
         {
             Store element = source.Stores.FirstOrDefault(rec =>
-            rec.StoreName == model.StoreName && rec.Id !=
+            rec.StockName == model.StoreName && rec.Id !=
            model.Id);
             if (element != null)
             {
@@ -95,7 +95,7 @@ public class StoreServiceList : IStoreService
             {
                 throw new Exception("Элемент не найден");
             }
-            element.StoreName = model.StoreName;
+            element.StockName = model.StoreName;
         }
         public void DelElement(int id)
         {
