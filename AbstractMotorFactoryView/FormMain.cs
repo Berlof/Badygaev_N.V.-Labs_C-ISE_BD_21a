@@ -1,6 +1,8 @@
 ﻿using AbstractMotorFactoryServiceDAL.BindingModels;
 using AbstractMotorFactoryServiceDAL.Interfaces;
 using AbstractMotorFactoryServiceDAL.ViewModels;
+using AbstractMotorfactoryView;
+using SnackBarView;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace AbstractMotorFactoryView
         public new IUnityContainer Container { get; set; }
 
         private readonly ICoreService service;
+        private readonly IReportService reportService;
 
         public FormMain(ICoreService service)
         {
@@ -132,6 +135,48 @@ namespace AbstractMotorFactoryView
         private void складыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormStores>();
+            form.ShowDialog();
+        }
+
+        private void отчётыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void прайсИзделийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Filter = "doc|*.doc|docx|*.docx"
+            };
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    reportService.SaveEnginePrice(new ReportBindingModel
+                    {
+                        FileName = sfd.FileName
+                    });
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загруженнностьСкладовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormStocksLoad>();
+            form.ShowDialog();
+        }
+
+        private void заказыКлиентовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormClientOrders>();
             form.ShowDialog();
         }
     }

@@ -20,5 +20,6 @@ namespace AbstractMotorFactoryModel
 
         [ForeignKey("DetailId")]
         public virtual List<StoreDetail> StoreDetails { get; set; }
+        public object Price { get; set; }
     }
 }
