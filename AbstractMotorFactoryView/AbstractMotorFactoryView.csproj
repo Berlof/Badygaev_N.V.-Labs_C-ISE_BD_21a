@@ -39,21 +39,51 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MSSQL, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MSSQL.1.0.1\lib\net451\MSSQL.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.15\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.Common.4.1.0\lib\net451\System.Data.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SqlClient, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.1.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -66,19 +96,32 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.9.7\lib\net46\Unity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Container, Version=5.9.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.9.7\lib\net46\Unity.Container.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIClient.cs" />
     <Compile Include="FormCreateProduction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCreateProduction.Designer.cs">
       <DependentUpon>FormCreateProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomerProductions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomerProductions.Designer.cs">
+      <DependentUpon>FormCustomerProductions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStorageLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStorageLoad.Designer.cs">
+      <DependentUpon>FormStorageLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStorages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStorages.Designer.cs">
+      <DependentUpon>FormStorages.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDetail.cs">
       <SubType>Form</SubType>
@@ -128,28 +171,32 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPutOnStore.cs">
+    <Compile Include="FormPutOnStorage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPutOnStore.designer.cs">
-      <DependentUpon>FormPutOnStore.cs</DependentUpon>
+    <Compile Include="FormPutOnStorage.Designer.cs">
+      <DependentUpon>FormPutOnStorage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStores.cs">
+    <Compile Include="FormStorage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStores.designer.cs">
-      <DependentUpon>FormStores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormStore.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormStore.designer.cs">
-      <DependentUpon>FormStore.cs</DependentUpon>
+    <Compile Include="FormStorage.Designer.cs">
+      <DependentUpon>FormStorage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FormCreateProduction.resx">
       <DependentUpon>FormCreateProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomerProductions.resx">
+      <DependentUpon>FormCustomerProductions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStorageLoad.resx">
+      <DependentUpon>FormStorageLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStorages.resx">
+      <DependentUpon>FormStorages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetail.resx">
       <DependentUpon>FormDetail.cs</DependentUpon>
@@ -175,14 +222,11 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPutOnStore.resx">
-      <DependentUpon>FormPutOnStore.cs</DependentUpon>
+    <EmbeddedResource Include="FormPutOnStorage.resx">
+      <DependentUpon>FormPutOnStorage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStores.resx">
-      <DependentUpon>FormStores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormStore.resx">
-      <DependentUpon>FormStore.cs</DependentUpon>
+    <EmbeddedResource Include="FormStorage.resx">
+      <DependentUpon>FormStorage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,6 +237,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportCustomerProduction.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -213,13 +258,28 @@
       <Name>AbstractMotorFactoryServiceDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\AbstractMotorFactoryServiceImplementDataBase\AbstractMotorFactoryServiceImplementDataBase.csproj">
-      <Project>{50d3b594-5bde-43e3-980b-265592a2db48}</Project>
+      <Project>{c2233cf1-ec86-4dee-980e-ad66c96f8388}</Project>
       <Name>AbstractMotorFactoryServiceImplementDataBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\AbstractMotorFactoryServiceImplementList\AbstractMotorFactoryServiceImplementList.csproj">
       <Project>{dea4b232-29e8-4df5-860d-bf8055ee7bd5}</Project>
       <Name>AbstractMotorFactoryServiceImplementList</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

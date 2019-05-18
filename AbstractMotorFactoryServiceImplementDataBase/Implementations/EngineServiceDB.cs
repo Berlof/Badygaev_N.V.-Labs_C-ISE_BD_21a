@@ -5,8 +5,6 @@ using AbstractMotorFactoryServiceDAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
 {
@@ -19,22 +17,22 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
         }
         public List<EngineViewModel> GetList()
         {
-            List<EngineViewModel> result = context.Engines.Select(rec => new  EngineViewModel
+            List<EngineViewModel> result = context.Engines.Select(rec => new EngineViewModel
             {
                 Id = rec.Id,
                 EngineName = rec.EngineName,
                 Cost = rec.Cost,
                 EngineDetails = context.EngineDetails
-            .Where(recPC => recPC.EngineId == rec.Id)
-           .Select(recPC => new EngineDetailViewModel
-           {
-               Id = recPC.Id,
-               EngineId = recPC.EngineId,
-               DetailId = recPC.DetailId,
-               DetailName = recPC.Detail.DetailName,
-               Number = recPC.Number
-           })
-           .ToList()
+                    .Where(recPC => recPC.EngineId == rec.Id)
+                    .Select(recPC => new EngineDetailViewModel
+                    {
+                        Id = recPC.Id,
+                        EngineId = recPC.EngineId,
+                        DetailId = recPC.DetailId,
+                        DetailName = recPC.Detail.DetailName,
+                        Number = recPC.Number
+                    })
+                    .ToList()
             })
             .ToList();
             return result;
@@ -50,16 +48,16 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                     EngineName = element.EngineName,
                     Cost = element.Cost,
                     EngineDetails = context.EngineDetails
- .Where(recPC => recPC.EngineId == element.Id)
- .Select(recPC => new EngineDetailViewModel
- {
-     Id = recPC.Id,
-     EngineId = recPC.EngineId,
-     DetailId = recPC.DetailId,
-     DetailName = recPC.Detail.DetailName,
-     Number = recPC.Number
- })
- .ToList()
+                        .Where(recPC => recPC.EngineId == element.Id)
+                        .Select(recPC => new EngineDetailViewModel
+                        {
+                            Id = recPC.Id,
+                            EngineId = recPC.EngineId,
+                            DetailId = recPC.DetailId,
+                            DetailName = recPC.Detail.DetailName,
+                            Number = recPC.Number
+                        })
+                        .ToList()
                 };
             }
             throw new Exception("Элемент не найден");
@@ -70,8 +68,7 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             {
                 try
                 {
-                    Engine element = context.Engines.FirstOrDefault(rec =>
-                   rec.EngineName == model.EngineName);
+                    Engine element = context.Engines.FirstOrDefault(rec => rec.EngineName == model.EngineName);
                     if (element != null)
                     {
                         throw new Exception("Уже есть изделие с таким названием");
@@ -83,22 +80,22 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                     };
                     context.Engines.Add(element);
                     context.SaveChanges();
-                    // убираем дубли по компонентам
-                    var groupDetails = model.EngineDetails
-                     .GroupBy(rec => rec.DetailId)
-                    .Select(rec => new
-                    {
-                        DetailId = rec.Key,
-                        Number = rec.Sum(r => r.Number)
-                    });
-                    // добавляем компоненты
-                    foreach (var groupDetail in groupDetails)
+
+                    var groupComponents = model.EngineDetails
+                                                .GroupBy(rec => rec.DetailId)
+                                                .Select(rec => new
+                                                {
+                                                    DetailId = rec.Key,
+                                                    Number = rec.Sum(r => r.Number)
+                                                });
+                    
+                    foreach (var groupComponent in groupComponents)
                     {
                         context.EngineDetails.Add(new EngineDetail
                         {
                             EngineId = element.Id,
-                            DetailId = groupDetail.DetailId,
-                            Number = groupDetail.Number
+                            DetailId = groupComponent.DetailId,
+                            Number = groupComponent.Number
                         });
                         context.SaveChanges();
                     }
@@ -117,8 +114,7 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             {
                 try
                 {
-                    Engine element = context.Engines.FirstOrDefault(rec =>
-                   rec.EngineName == model.EngineName && rec.Id != model.Id);
+                    Engine element = context.Engines.FirstOrDefault(rec => rec.EngineName == model.EngineName && rec.Id != model.Id);
                     if (element != null)
                     {
                         throw new Exception("Уже есть изделие с таким названием");
@@ -131,37 +127,29 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                     element.EngineName = model.EngineName;
                     element.Cost = model.Cost;
                     context.SaveChanges();
-                    // обновляем существуюущие компоненты
-                    var compIds = model.EngineDetails.Select(rec =>
-                   rec.DetailId).Distinct();
-                    var updateDetails = context.EngineDetails.Where(rec =>
-                   rec.EngineId == model.Id && compIds.Contains(rec.DetailId));
-                    foreach (var updateDetail in updateDetails)
+                    
+                    var compIds = model.EngineDetails.Select(rec => rec.DetailId).Distinct();
+                    var updateComponents = context.EngineDetails.Where(rec => rec.EngineId == model.Id && compIds.Contains(rec.DetailId));
+                    foreach (var updateComponent in updateComponents)
                     {
-                        updateDetail.Number =
-                       model.EngineDetails.FirstOrDefault(rec => rec.Id == updateDetail.Id).Number;
+                        updateComponent.Number = model.EngineDetails.FirstOrDefault(rec => rec.Id == updateComponent.Id).Number;
                     }
                     context.SaveChanges();
-                    context.EngineDetails.RemoveRange(context.EngineDetails.Where(rec =>
-                    rec.EngineId == model.Id && !compIds.Contains(rec.DetailId)));
+                    context.EngineDetails.RemoveRange(context.EngineDetails.Where(rec => rec.EngineId == model.Id && !compIds.Contains(rec.DetailId)));
                     context.SaveChanges();
-                    // новые записи
-                    var groupDetails = model.EngineDetails
-                    .Where(rec => rec.Id == 0)
-                   .GroupBy(rec => rec.DetailId)
-                   .Select(rec => new
-                   {
-                       DetailId = rec.Key,
-                       Number = rec.Sum(r => r.Number)
-                   });
-                    foreach (var groupDetail in groupDetails)
+                    
+                    var groupComponents = model.EngineDetails.Where(rec => rec.Id == 0).GroupBy(rec => rec.DetailId)
+                        .Select(rec => new
+                        {
+                            DetailId = rec.Key,
+                            Number = rec.Sum(r => r.Number)
+                        });
+                    foreach (var groupComponent in groupComponents)
                     {
-                        EngineDetail elementPC =
-                       context.EngineDetails.FirstOrDefault(rec => rec.EngineId == model.Id &&
-                       rec.DetailId == groupDetail.DetailId);
+                        EngineDetail elementPC = context.EngineDetails.FirstOrDefault(rec => rec.EngineId == model.Id && rec.DetailId == groupComponent.DetailId);
                         if (elementPC != null)
                         {
-                            elementPC.Number += groupDetail.Number;
+                            elementPC.Number += groupComponent.Number;
                             context.SaveChanges();
                         }
                         else
@@ -169,8 +157,8 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                             context.EngineDetails.Add(new EngineDetail
                             {
                                 EngineId = model.Id,
-                                DetailId = groupDetail.DetailId,
-                                Number = groupDetail.Number
+                                DetailId = groupComponent.DetailId,
+                                Number = groupComponent.Number
                             });
                             context.SaveChanges();
                         }
@@ -190,13 +178,10 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             {
                 try
                 {
-                    Engine element = context.Engines.FirstOrDefault(rec => rec.Id ==
-                   id);
+                    Engine element = context.Engines.FirstOrDefault(rec => rec.Id == id);
                     if (element != null)
                     {
-                        // удаяем записи по компонентам при удалении изделия
-                        context.EngineDetails.RemoveRange(context.EngineDetails.Where(rec =>
-                        rec.EngineId == id));
+                        context.EngineDetails.RemoveRange(context.EngineDetails.Where(rec => rec.EngineId == id));
                         context.Engines.Remove(element);
                         context.SaveChanges();
                     }
@@ -214,4 +199,4 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             }
         }
     }
-}
+}

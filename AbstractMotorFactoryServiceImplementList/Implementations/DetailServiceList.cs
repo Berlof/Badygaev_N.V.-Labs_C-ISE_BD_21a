@@ -19,8 +19,7 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
 
         public List<DetailViewModel> GetList()
         {
-            List<DetailViewModel> result = source.Details.Select(rec => new
-           DetailViewModel
+            List<DetailViewModel> result = source.Details.Select(rec => new DetailViewModel
             {
                 Id = rec.Id,
                 DetailName = rec.DetailName
@@ -28,6 +27,7 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             .ToList();
             return result;
         }
+
         public DetailViewModel GetElement(int id)
         {
             Detail element = source.Details.FirstOrDefault(rec => rec.Id == id);
@@ -39,28 +39,27 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
                     DetailName = element.DetailName
                 };
             }
-            throw new Exception("Элемент не найден");
+            throw new Exception("Элемент не найден");
         }
+
         public void AddElement(DetailBindingModel model)
         {
-            Detail element = source.Details.FirstOrDefault(rec => rec.DetailName
-           == model.DetailName);
+            Detail element = source.Details.FirstOrDefault(rec => rec.DetailName == model.DetailName);
             if (element != null)
             {
                 throw new Exception("Уже есть компонент с таким названием");
             }
-            int maxId = source.Details.Count > 0 ? source.Details.Max(rec =>
-           rec.Id) : 0;
+            int maxId = source.Details.Count > 0 ? source.Details.Max(rec => rec.Id) : 0;
             source.Details.Add(new Detail
             {
                 Id = maxId + 1,
                 DetailName = model.DetailName
-            });
+            });
         }
+
         public void UpdElement(DetailBindingModel model)
         {
-            Detail element = source.Details.FirstOrDefault(rec => rec.DetailName
-           == model.DetailName && rec.Id != model.Id);
+            Detail element = source.Details.FirstOrDefault(rec => rec.DetailName == model.DetailName && rec.Id != model.Id);
             if (element != null)
             {
                 throw new Exception("Уже есть компонент с таким названием");
@@ -72,6 +71,7 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             }
             element.DetailName = model.DetailName;
         }
+
         public void DelElement(int id)
         {
             Detail element = source.Details.FirstOrDefault(rec => rec.Id == id);

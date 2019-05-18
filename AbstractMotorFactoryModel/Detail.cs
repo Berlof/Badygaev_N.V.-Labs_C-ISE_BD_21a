@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace AbstractMotorFactoryModel
 {
@@ -19,6 +15,6 @@ namespace AbstractMotorFactoryModel
         public virtual List<EngineDetail> EngineDetails { get; set; }
 
         [ForeignKey("DetailId")]
-        public virtual List<StoreDetail> StoreDetails { get; set; }
+        public virtual List<StorageDetail> StorageDetails { get; set; }
     }
 }

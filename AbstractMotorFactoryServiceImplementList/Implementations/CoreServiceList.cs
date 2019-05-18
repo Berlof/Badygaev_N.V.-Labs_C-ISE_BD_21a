@@ -20,24 +20,23 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
         public List<ProductionViewModel> GetList()
         {
             List<ProductionViewModel> result = source.Productions
-            .Select(rec => new ProductionViewModel
-            {
-                Id = rec.Id,
-                CustomerId = rec.CustomerId,
-                EngineId = rec.EngineId,
-                TimeCreate = rec.TimeCreate.ToLongTimeString(),
-                TimeImplement = rec.TimeImplement?.ToLongTimeString(),
-                State = rec.State.ToString(),
-                Number = rec.Number,
-                Amount = rec.Amount,
-                CustomerFIO = source.Customers.FirstOrDefault(recC => recC.Id ==
-     rec.CustomerId)?.CustomerFIO,
-                EngineName = source.Engines.FirstOrDefault(recP => recP.Id ==
-    rec.EngineId)?.EngineName,
-            })
-            .ToList();
+                .Select(rec => new ProductionViewModel
+                {
+                    Id = rec.Id,
+                    CustomerId = rec.CustomerId,
+                    EngineId = rec.EngineId,
+                    TimeCreate = rec.TimeCreate.ToLongDateString(),
+                    TimeImplement = rec.TimeImplement?.ToLongDateString(),
+                    State = rec.State.ToString(),
+                    Number = rec.Number,
+                    Amount = rec.Amount,
+                    CustomerFIO = source.Customers.FirstOrDefault(recC => recC.Id == rec.CustomerId)?.CustomerFIO,
+                    EngineName = source.Engines.FirstOrDefault(recP => recP.Id == rec.EngineId)?.EngineName
+                })
+                .ToList();
             return result;
         }
+
         public void CreateOrder(ProductionBindingModel model)
         {
             int maxId = source.Productions.Count > 0 ? source.Productions.Max(rec => rec.Id) : 0;
@@ -50,8 +49,9 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
                 Number = model.Number,
                 Amount = model.Amount,
                 State = ProductionStatus.Принят
-            });
+            });
         }
+
         public void TakeOrderInWork(ProductionBindingModel model)
         {
             Production element = source.Productions.FirstOrDefault(rec => rec.Id == model.Id);
@@ -63,48 +63,41 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             {
                 throw new Exception("Заказ не в статусе \"Принят\"");
             }
-            // смотрим по количеству компонентов на складах
-            var EngineDetails = source.EngineDetails.Where(rec => rec.EngineId
-           == element.EngineId); foreach (var EngineDetail in EngineDetails)
+
+            var engineDetails = source.EngineDetails.Where(rec => rec.EngineId == element.EngineId);
+            foreach (var engineDetail in engineDetails)
             {
-                int countOnStocks = source.StoreDetails
-                .Where(rec => rec.DetailId ==
-               EngineDetail.DetailId)
-               .Sum(rec => rec.Number);
-                if (countOnStocks < EngineDetail.Number * element.Number)
+                int countOnStocks = source.StorageDetails.Where(rec => rec.DetailId == engineDetail.DetailId).Sum(rec => rec.Number);
+                if (countOnStocks < engineDetail.Number * element.Number)
                 {
-                    var componentName = source.Details.FirstOrDefault(rec => rec.Id ==
-                   EngineDetail.DetailId);
-                    throw new Exception("Не достаточно компонента " +
-                   componentName?.DetailName + " требуется " + (EngineDetail.Number * element.Number) +
-                   ", в наличии " + countOnStocks);
+                    var componentName = source.Details.FirstOrDefault(rec => rec.Id == engineDetail.DetailId);
+                    throw new Exception("Не достаточно компонента " + componentName?.DetailName + " требуется " + (engineDetail.Number * element.Number) + ", в наличии " + countOnStocks);
                 }
             }
-            // списываем
-            foreach (var EngineDetail in EngineDetails)
+
+            foreach (var engineDetail in engineDetails)
             {
-                int countOnStocks = EngineDetail.Number * element.Number;
-                var storeDetails = source.StoreDetails.Where(rec => rec.DetailId
-               == EngineDetail.DetailId);
-                foreach (var storeDetail in storeDetails)
+                int numInStorage = engineDetail.Number * element.Number;
+                var storageDetails = source.StorageDetails.Where(rec => rec.DetailId == engineDetail.DetailId);
+                foreach (var storageDetail in storageDetails)
                 {
-                    // компонентов на одном слкаде может не хватать
-                    if (storeDetail.Number >= countOnStocks)
+                    if (storageDetail.Number >= numInStorage)
                     {
-                        storeDetail.Number -= countOnStocks;
+                        storageDetail.Number -= numInStorage;
                         break;
                     }
                     else
                     {
-                        countOnStocks -= storeDetail.Number;
-                        storeDetail.Number = 0;
+                        numInStorage -= storageDetail.Number;
+                        storageDetail.Number = 0;
                     }
                 }
             }
             element.TimeImplement = DateTime.Now;
             element.State = ProductionStatus.Выполняется;
         }
-            public void FinishOrder(ProductionBindingModel model)
+
+        public void FinishOrder(ProductionBindingModel model)
         {
             Production element = source.Productions.FirstOrDefault(rec => rec.Id == model.Id);
             if (element == null)
@@ -117,6 +110,7 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             }
             element.State = ProductionStatus.Готов;
         }
+
         public void PayOrder(ProductionBindingModel model)
         {
             Production element = source.Productions.FirstOrDefault(rec => rec.Id == model.Id);
@@ -130,26 +124,27 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             }
             element.State = ProductionStatus.Оплачен;
         }
-        public void PutDetailOnStore(StoreDetailBindingModel model)
+
+        public void PutDetailOnStorage(StorageDetailBindingModel model)
         {
-            StoreDetail element = source.StoreDetails.FirstOrDefault(rec =>
-           rec.StoreId == model.StoreId && rec.DetailId == model.DetailId);
+            StorageDetail element = source.StorageDetails.FirstOrDefault(rec =>
+                rec.StorageId == model.StorageId && rec.DetailId == model.DetailId);
             if (element != null)
             {
                 element.Number += model.Number;
             }
             else
             {
-                int maxId = source.StoreDetails.Count > 0 ?
-               source.StoreDetails.Max(rec => rec.Id) : 0;
-                source.StoreDetails.Add(new StoreDetail
+                int maxId = source.StorageDetails.Count > 0 ?
+                source.StorageDetails.Max(rec => rec.Id) : 0;
+                source.StorageDetails.Add(new StorageDetail
                 {
                     Id = ++maxId,
-                    StoreId = model.StoreId,
+                    StorageId = model.StorageId,
                     DetailId = model.DetailId,
                     Number = model.Number
                 });
             }
-        }
+        }
     }
-}
+}

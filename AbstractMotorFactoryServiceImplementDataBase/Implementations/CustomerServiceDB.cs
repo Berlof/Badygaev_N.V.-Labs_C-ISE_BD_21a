@@ -4,23 +4,22 @@ using AbstractMotorFactoryServiceDAL.Interfaces;
 using AbstractMotorFactoryServiceDAL.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
 {
     public class CustomerServiceDB : ICustomerService
     {
         private AbstractDbContext context;
+
         public CustomerServiceDB(AbstractDbContext context)
         {
             this.context = context;
         }
+
         public List<CustomerViewModel> GetList()
         {
-            List<CustomerViewModel> result = context.Customers.Select(rec => new
-           CustomerViewModel
+            List<CustomerViewModel> result = context.Customers.Select(rec => new CustomerViewModel
             {
                 Id = rec.Id,
                 CustomerFIO = rec.CustomerFIO
@@ -28,6 +27,7 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             .ToList();
             return result;
         }
+
         public CustomerViewModel GetElement(int id)
         {
             Customer element = context.Customers.FirstOrDefault(rec => rec.Id == id);
@@ -41,10 +41,10 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             }
             throw new Exception("Элемент не найден");
         }
+
         public void AddElement(CustomerBindingModel model)
         {
-            Customer element = context.Customers.FirstOrDefault(rec => rec.CustomerFIO ==
-           model.CustomerFIO);
+            Customer element = context.Customers.FirstOrDefault(rec => rec.CustomerFIO == model.CustomerFIO);
             if (element != null)
             {
                 throw new Exception("Уже есть клиент с таким ФИО");
@@ -55,10 +55,10 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             });
             context.SaveChanges();
         }
+
         public void UpdElement(CustomerBindingModel model)
         {
-            Customer element = context.Customers.FirstOrDefault(rec => rec.CustomerFIO ==
-           model.CustomerFIO && rec.Id != model.Id);
+            Customer element = context.Customers.FirstOrDefault(rec => rec.CustomerFIO == model.CustomerFIO && rec.Id != model.Id);
             if (element != null)
             {
                 throw new Exception("Уже есть клиент с таким ФИО");
@@ -71,6 +71,7 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             element.CustomerFIO = model.CustomerFIO;
             context.SaveChanges();
         }
+
         public void DelElement(int id)
         {
             Customer element = context.Customers.FirstOrDefault(rec => rec.Id == id);
@@ -85,5 +86,4 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             }
         }
     }
-
 }

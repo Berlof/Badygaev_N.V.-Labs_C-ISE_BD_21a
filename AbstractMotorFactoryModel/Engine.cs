@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AbstractMotorFactoryModel
 {
@@ -15,10 +11,13 @@ namespace AbstractMotorFactoryModel
         [Required]
         public string EngineName { get; set; }
 
+        [Required]
         public decimal Cost { get; set; }
+
+        [ForeignKey("EngineId")]
+        public virtual List<EngineDetail> EngineDetails { get; set; }
 
         [ForeignKey("EngineId")]
         public virtual List<Production> Productions { get; set; }
     }
-
 }
