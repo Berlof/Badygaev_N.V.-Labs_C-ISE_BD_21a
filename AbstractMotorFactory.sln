@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractMotorFactoryView", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractMotorFactoryServiceImplementDataBase", "AbstractMotorFactoryServiceImplementDataBase\AbstractMotorFactoryServiceImplementDataBase.csproj", "{50D3B594-5BDE-43E3-980B-265592A2DB48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractMotorFactoryWPF", "AbstractMotorFactoryWPF\AbstractMotorFactoryWPF.csproj", "{D26127E6-1053-41CD-958B-6BBA7BB3FB22}"
+	ProjectSection(ProjectDependencies) = postProject
+		{50D3B594-5BDE-43E3-980B-265592A2DB48} = {50D3B594-5BDE-43E3-980B-265592A2DB48}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +110,22 @@ Global
 		{50D3B594-5BDE-43E3-980B-265592A2DB48}.Release|x64.Build.0 = Release|Any CPU
 		{50D3B594-5BDE-43E3-980B-265592A2DB48}.Release|x86.ActiveCfg = Release|Any CPU
 		{50D3B594-5BDE-43E3-980B-265592A2DB48}.Release|x86.Build.0 = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|ARM.Build.0 = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|x64.Build.0 = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Debug|x86.Build.0 = Debug|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|ARM.Build.0 = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|x64.ActiveCfg = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|x64.Build.0 = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|x86.ActiveCfg = Release|Any CPU
+		{D26127E6-1053-41CD-958B-6BBA7BB3FB22}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

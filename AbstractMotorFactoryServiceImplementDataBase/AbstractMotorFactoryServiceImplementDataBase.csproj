@@ -62,9 +62,9 @@
     <Compile Include="Implementations\EngineServiceDB.cs" />
     <Compile Include="Implementations\MainServiceDB.cs" />
     <Compile Include="Implementations\StoreServiceDB.cs" />
-    <Compile Include="Migrations\201903292114183_FirstMigration.cs" />
-    <Compile Include="Migrations\201903292114183_FirstMigration.Designer.cs">
-      <DependentUpon>201903292114183_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201906102144483_WPF-one.cs" />
+    <Compile Include="Migrations\201906102144483_WPF-one.Designer.cs">
+      <DependentUpon>201906102144483_WPF-one.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,8 +90,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903292114183_FirstMigration.resx">
-      <DependentUpon>201903292114183_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906102144483_WPF-one.resx">
+      <DependentUpon>201906102144483_WPF-one.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
