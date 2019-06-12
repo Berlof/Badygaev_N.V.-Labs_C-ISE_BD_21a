@@ -5,17 +5,17 @@ using System.Runtime.Serialization;
 namespace AbstractMotorFactoryServiceDAL.ViewModels
 {
     [DataContract]
-    public class StorageViewModel
+    public class StoreViewModel
     {
         [DataMember]
         public int Id { get; set; }
 
         [DataMember]
         [DisplayName("Название склада")]
-        public string StorageName { get; set; }
+        public string StoreName { get; set; }
 
         [DataMember]
         [DisplayName("Детали на складе")]
-        public List<StorageDetailViewModel> StorageDetails { get; set; }
+        public List<StoreDetailViewModel> StoreDetails { get; set; }
     }
 }

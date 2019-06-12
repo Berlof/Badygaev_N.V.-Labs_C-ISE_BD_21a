@@ -1,6 +1,6 @@
 ﻿namespace AbstractMotorFactoryView
 {
-    partial class FormStorage
+    partial class FormStore
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // FormStorage
+            // FormStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,9 +102,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "FormStorage";
+            this.Name = "FormStore";
             this.Text = "Склад";
-            this.Load += new System.EventHandler(this.FormStorage_Load);
+            this.Load += new System.EventHandler(this.FormStore_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

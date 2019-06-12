@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace AbstractMotorFactoryView
 {
-    public partial class FormPutOnStorage : Form
+    public partial class FormPutOnStore : Form
     {
-        public FormPutOnStorage()
+        public FormPutOnStore()
         {
             InitializeComponent();
         }
 
-        private void FormPutOnStorage_Load(object sender, EventArgs e)
+        private void FormPutOnStore_Load(object sender, EventArgs e)
         {
             try
             {
@@ -26,13 +26,13 @@ namespace AbstractMotorFactoryView
                     comboBoxDetail.DataSource = listD;
                     comboBoxDetail.SelectedItem = null;
                 }
-                List<StorageViewModel> listS = APIClient.GetRequest<List<StorageViewModel>>("api/Storage/GetList");
+                List<StoreViewModel> listS = APIClient.GetRequest<List<StoreViewModel>>("api/Store/GetList");
                 if (listS != null)
                 {
-                    comboBoxStorage.DisplayMember = "StorageName";
-                    comboBoxStorage.ValueMember = "Id";
-                    comboBoxStorage.DataSource = listS;
-                    comboBoxStorage.SelectedItem = null;
+                    comboBoxStore.DisplayMember = "StoreName";
+                    comboBoxStore.ValueMember = "Id";
+                    comboBoxStore.DataSource = listS;
+                    comboBoxStore.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -54,17 +54,17 @@ namespace AbstractMotorFactoryView
                 MessageBox.Show("Выберите компонент", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxStorage.SelectedValue == null)
+            if (comboBoxStore.SelectedValue == null)
             {
                 MessageBox.Show("Выберите склад", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
             {
-                APIClient.PostRequest<StorageDetailBindingModel, bool>("api/Core/PutDetailOnStorage", new StorageDetailBindingModel
+                APIClient.PostRequest<StoreDetailBindingModel, bool>("api/Core/PutDetailOnStore", new StoreDetailBindingModel
                 {
                     DetailId = Convert.ToInt32(comboBoxDetail.SelectedValue),
-                    StorageId = Convert.ToInt32(comboBoxStorage.SelectedValue),
+                    StoreId = Convert.ToInt32(comboBoxStore.SelectedValue),
                     Number = Convert.ToInt32(textBoxNum.Text)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

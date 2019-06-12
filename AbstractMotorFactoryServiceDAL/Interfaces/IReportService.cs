@@ -8,7 +8,7 @@ namespace AbstractMotorFactoryServiceDAL.Interfaces
     {
         void SaveProductPrice(ReportBindingModel model);
 
-        List<StoragesLoadViewModel> GetStocksLoad();
+        List<StoresLoadViewModel> GetStocksLoad();
 
         void SaveStocksLoad(ReportBindingModel model);
 

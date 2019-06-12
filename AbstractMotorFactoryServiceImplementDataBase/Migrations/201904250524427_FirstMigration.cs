@@ -14,26 +14,26 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Migrations
             DropIndex("dbo.StoreDetails", new[] { "DetailId" });
             DropIndex("dbo.StoreDetails", new[] { "Engine_Id" });
             CreateTable(
-                "dbo.StorageDetails",
+                "dbo.StoreDetails",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        StorageId = c.Int(nullable: false),
+                        StoreId = c.Int(nullable: false),
                         DetailId = c.Int(nullable: false),
                         Number = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Details", t => t.DetailId, cascadeDelete: true)
-                .ForeignKey("dbo.Storages", t => t.StorageId, cascadeDelete: true)
-                .Index(t => t.StorageId)
+                .ForeignKey("dbo.Stores", t => t.StoreId, cascadeDelete: true)
+                .Index(t => t.StoreId)
                 .Index(t => t.DetailId);
             
             CreateTable(
-                "dbo.Storages",
+                "dbo.Stores",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        StorageName = c.String(nullable: false),
+                        StoreName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -64,12 +64,12 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            DropForeignKey("dbo.StorageDetails", "StorageId", "dbo.Storages");
-            DropForeignKey("dbo.StorageDetails", "DetailId", "dbo.Details");
-            DropIndex("dbo.StorageDetails", new[] { "DetailId" });
-            DropIndex("dbo.StorageDetails", new[] { "StorageId" });
-            DropTable("dbo.Storages");
-            DropTable("dbo.StorageDetails");
+            DropForeignKey("dbo.StoreDetails", "StoreId", "dbo.Stores");
+            DropForeignKey("dbo.StoreDetails", "DetailId", "dbo.Details");
+            DropIndex("dbo.StoreDetails", new[] { "DetailId" });
+            DropIndex("dbo.StoreDetails", new[] { "StoreId" });
+            DropTable("dbo.Stores");
+            DropTable("dbo.StoreDetails");
             CreateIndex("dbo.StoreDetails", "Engine_Id");
             CreateIndex("dbo.StoreDetails", "DetailId");
             CreateIndex("dbo.StoreDetails", "StoreId");

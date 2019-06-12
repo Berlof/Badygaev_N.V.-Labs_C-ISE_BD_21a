@@ -50,9 +50,9 @@ namespace AbstractMotorFactoryRestApi.Controllers
         }
 
         [HttpPost]
-        public void PutDetailOnStorage(StorageDetailBindingModel model)
+        public void PutDetailOnStore(StoreDetailBindingModel model)
         {
-            _service.PutDetailOnStorage(model);
+            _service.PutDetailOnStore(model);
         }
     }
 }

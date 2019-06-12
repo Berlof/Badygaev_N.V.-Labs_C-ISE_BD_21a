@@ -1,6 +1,6 @@
 ﻿namespace AbstractMotorFactoryView
 {
-    partial class FormStorageLoad
+    partial class FormStoreLoad
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.buttonSaveToExcel = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Store = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -50,7 +50,7 @@
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Storage,
+            this.Store,
             this.Detail,
             this.Number});
             this.dataGridView.Location = new System.Drawing.Point(13, 42);
@@ -58,11 +58,11 @@
             this.dataGridView.Size = new System.Drawing.Size(617, 396);
             this.dataGridView.TabIndex = 1;
             // 
-            // Storage
+            // Store
             // 
-            this.Storage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Storage.HeaderText = "Склад";
-            this.Storage.Name = "Storage";
+            this.Store.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Store.HeaderText = "Склад";
+            this.Store.Name = "Store";
             // 
             // Detail
             // 
@@ -76,14 +76,14 @@
             this.Number.HeaderText = "Количество";
             this.Number.Name = "Number";
             // 
-            // FormStorageLoad
+            // FormStoreLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 450);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonSaveToExcel);
-            this.Name = "FormStorageLoad";
+            this.Name = "FormStoreLoad";
             this.Text = "Загруженность складов";
             this.Load += new System.EventHandler(this.FormStocksLoad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -95,7 +95,7 @@
 
         private System.Windows.Forms.Button buttonSaveToExcel;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Storage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Store;
         private System.Windows.Forms.DataGridViewTextBoxColumn Detail;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
     }

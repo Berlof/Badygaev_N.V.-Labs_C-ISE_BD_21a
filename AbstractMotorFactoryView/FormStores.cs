@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace AbstractMotorFactoryView
 {
-    public partial class FormStorages : Form
+    public partial class FormStores : Form
     {
-        public FormStorages()
+        public FormStores()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace AbstractMotorFactoryView
         {
             try
             {
-                List<StorageViewModel> list = APIClient.GetRequest<List<StorageViewModel>>("api/Storage/GetList");
+                List<StoreViewModel> list = APIClient.GetRequest<List<StoreViewModel>>("api/Store/GetList");
                 if (list != null)
                 {
                     dataGridView1.DataSource = list;
@@ -39,7 +39,7 @@ namespace AbstractMotorFactoryView
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var form = new FormStorage();
+            var form = new FormStore();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
@@ -50,7 +50,7 @@ namespace AbstractMotorFactoryView
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                var form = new FormStorage();
+                var form = new FormStore();
                 form.Id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -69,7 +69,7 @@ namespace AbstractMotorFactoryView
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        APIClient.PostRequest<StorageBindingModel, bool>("api/Storage/DelElement", new StorageBindingModel { Id = id });
+                        APIClient.PostRequest<StoreBindingModel, bool>("api/Store/DelElement", new StoreBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {

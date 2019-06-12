@@ -22,8 +22,8 @@ namespace AbstractMotorFactoryServiceImplementDataBase
 
         public virtual DbSet<EngineDetail> EngineDetails { get; set; }
 
-        public virtual DbSet<Storage> Storages { get; set; }
+        public virtual DbSet<Store> Stores { get; set; }
 
-        public virtual DbSet<StorageDetail> StorageDetails { get; set; }
+        public virtual DbSet<StoreDetail> StoreDetails { get; set; }
     }
 }

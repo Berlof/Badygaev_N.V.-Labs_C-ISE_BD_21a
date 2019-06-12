@@ -55,13 +55,13 @@ namespace AbstractMotorFactoryView
 
         private void складыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new FormStorages();
+            var form = new FormStores();
             form.ShowDialog();
         }
 
         private void пополнитьСкладToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new FormPutOnStorage();
+            var form = new FormPutOnStore();
             form.ShowDialog();
         }
 
@@ -129,7 +129,8 @@ namespace AbstractMotorFactoryView
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            }
+
         }
 
         private void buttonRef_Click(object sender, EventArgs e)
@@ -162,14 +163,15 @@ namespace AbstractMotorFactoryView
 
         private void загруженностьСкладовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new FormStorageLoad();
+            var form = new FormStoreLoad();
             form.ShowDialog();
         }
 
         private void заказыКлиентовToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new FormCustomerProductions();
-            form.ShowDialog();
+            form.ShowDialog();
+
         }
     }
 }

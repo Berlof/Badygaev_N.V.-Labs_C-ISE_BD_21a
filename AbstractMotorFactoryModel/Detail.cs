@@ -15,6 +15,6 @@ namespace AbstractMotorFactoryModel
         public virtual List<EngineDetail> EngineDetails { get; set; }
 
         [ForeignKey("DetailId")]
-        public virtual List<StorageDetail> StorageDetails { get; set; }
+        public virtual List<StoreDetail> StoreDetails { get; set; }
     }
 }

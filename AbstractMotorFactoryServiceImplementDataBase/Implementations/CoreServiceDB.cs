@@ -73,9 +73,9 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                     foreach (var productComponent in engineDetails)
                     {
                         int NumberOnStocks = productComponent.Number * element.Number;
-                        var storageComponents = context.StorageDetails.Where(rec =>
+                        var StoreComponents = context.StoreDetails.Where(rec =>
                         rec.DetailId == productComponent.DetailId);
-                        foreach (var stockComponent in storageComponents)
+                        foreach (var stockComponent in StoreComponents)
                         {
                             if (stockComponent.Number >= NumberOnStocks)
                             {
@@ -137,18 +137,18 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
             element.State = ProductionStatus.Оплачен;
             context.SaveChanges();
         }
-        public void PutDetailOnStorage(StorageDetailBindingModel model)
+        public void PutDetailOnStore(StoreDetailBindingModel model)
         {
-            StorageDetail element = context.StorageDetails.FirstOrDefault(rec => rec.StorageId == model.StorageId && rec.DetailId == model.DetailId);
+            StoreDetail element = context.StoreDetails.FirstOrDefault(rec => rec.StoreId == model.StoreId && rec.DetailId == model.DetailId);
             if (element != null)
             {
                 element.Number += model.Number;
             }
             else
             {
-                context.StorageDetails.Add(new StorageDetail
+                context.StoreDetails.Add(new StoreDetail
                 {
-                    StorageId = model.StorageId,
+                    StoreId = model.StoreId,
                     DetailId = model.DetailId,
                     Number = model.Number
                 });

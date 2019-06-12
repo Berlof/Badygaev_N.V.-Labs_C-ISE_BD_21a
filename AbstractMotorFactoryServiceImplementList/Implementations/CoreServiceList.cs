@@ -49,7 +49,8 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
                 Number = model.Number,
                 Amount = model.Amount,
                 State = ProductionStatus.Принят
-            });
+            });
+
         }
 
         public void TakeOrderInWork(ProductionBindingModel model)
@@ -67,7 +68,7 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             var engineDetails = source.EngineDetails.Where(rec => rec.EngineId == element.EngineId);
             foreach (var engineDetail in engineDetails)
             {
-                int countOnStocks = source.StorageDetails.Where(rec => rec.DetailId == engineDetail.DetailId).Sum(rec => rec.Number);
+                int countOnStocks = source.StoreDetails.Where(rec => rec.DetailId == engineDetail.DetailId).Sum(rec => rec.Number);
                 if (countOnStocks < engineDetail.Number * element.Number)
                 {
                     var componentName = source.Details.FirstOrDefault(rec => rec.Id == engineDetail.DetailId);
@@ -77,19 +78,19 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
 
             foreach (var engineDetail in engineDetails)
             {
-                int numInStorage = engineDetail.Number * element.Number;
-                var storageDetails = source.StorageDetails.Where(rec => rec.DetailId == engineDetail.DetailId);
-                foreach (var storageDetail in storageDetails)
+                int numInStore = engineDetail.Number * element.Number;
+                var StoreDetails = source.StoreDetails.Where(rec => rec.DetailId == engineDetail.DetailId);
+                foreach (var StoreDetail in StoreDetails)
                 {
-                    if (storageDetail.Number >= numInStorage)
+                    if (StoreDetail.Number >= numInStore)
                     {
-                        storageDetail.Number -= numInStorage;
+                        StoreDetail.Number -= numInStore;
                         break;
                     }
                     else
                     {
-                        numInStorage -= storageDetail.Number;
-                        storageDetail.Number = 0;
+                        numInStore -= StoreDetail.Number;
+                        StoreDetail.Number = 0;
                     }
                 }
             }
@@ -125,26 +126,27 @@ namespace AbstractMotorFactoryServiceImplementList.Implementations
             element.State = ProductionStatus.Оплачен;
         }
 
-        public void PutDetailOnStorage(StorageDetailBindingModel model)
+        public void PutDetailOnStore(StoreDetailBindingModel model)
         {
-            StorageDetail element = source.StorageDetails.FirstOrDefault(rec =>
-                rec.StorageId == model.StorageId && rec.DetailId == model.DetailId);
+            StoreDetail element = source.StoreDetails.FirstOrDefault(rec =>
+                rec.StoreId == model.StoreId && rec.DetailId == model.DetailId);
             if (element != null)
             {
                 element.Number += model.Number;
             }
             else
             {
-                int maxId = source.StorageDetails.Count > 0 ?
-                source.StorageDetails.Max(rec => rec.Id) : 0;
-                source.StorageDetails.Add(new StorageDetail
+                int maxId = source.StoreDetails.Count > 0 ?
+                source.StoreDetails.Max(rec => rec.Id) : 0;
+                source.StoreDetails.Add(new StoreDetail
                 {
                     Id = ++maxId,
-                    StorageId = model.StorageId,
+                    StoreId = model.StoreId,
                     DetailId = model.DetailId,
                     Number = model.Number
                 });
             }
-        }
+        }
+
     }
 }

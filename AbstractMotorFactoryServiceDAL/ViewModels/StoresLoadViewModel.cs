@@ -5,10 +5,10 @@ using System.Runtime.Serialization;
 namespace AbstractMotorFactoryServiceDAL.ViewModels
 {
     [DataContract]
-    public class StoragesLoadViewModel
+    public class StoresLoadViewModel
     {
         [DataMember]
-        public string StorageName { get; set; }
+        public string StoreName { get; set; }
 
         [DataMember]
         public int TotalNumber { get; set; }

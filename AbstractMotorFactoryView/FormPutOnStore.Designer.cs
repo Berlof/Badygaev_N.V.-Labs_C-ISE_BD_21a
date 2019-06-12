@@ -1,6 +1,6 @@
 ﻿namespace AbstractMotorFactoryView
 {
-    partial class FormPutOnStorage
+    partial class FormPutOnStore
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxStorage = new System.Windows.Forms.ComboBox();
+            this.comboBoxStore = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxDetail = new System.Windows.Forms.ComboBox();
             this.textBoxNum = new System.Windows.Forms.TextBox();
@@ -38,13 +38,13 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBoxStorage
+            // comboBoxStore
             // 
-            this.comboBoxStorage.FormattingEnabled = true;
-            this.comboBoxStorage.Location = new System.Drawing.Point(87, 12);
-            this.comboBoxStorage.Name = "comboBoxStorage";
-            this.comboBoxStorage.Size = new System.Drawing.Size(295, 21);
-            this.comboBoxStorage.TabIndex = 0;
+            this.comboBoxStore.FormattingEnabled = true;
+            this.comboBoxStore.Location = new System.Drawing.Point(87, 12);
+            this.comboBoxStore.Name = "comboBoxStore";
+            this.comboBoxStore.Size = new System.Drawing.Size(295, 21);
+            this.comboBoxStore.TabIndex = 0;
             // 
             // label1
             // 
@@ -108,7 +108,7 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // FormPutOnStorage
+            // FormPutOnStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,10 +120,10 @@
             this.Controls.Add(this.textBoxNum);
             this.Controls.Add(this.comboBoxDetail);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxStorage);
-            this.Name = "FormPutOnStorage";
+            this.Controls.Add(this.comboBoxStore);
+            this.Name = "FormPutOnStore";
             this.Text = "Пополнение склада";
-            this.Load += new System.EventHandler(this.FormPutOnStorage_Load);
+            this.Load += new System.EventHandler(this.FormPutOnStore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +131,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxStorage;
+        private System.Windows.Forms.ComboBox comboBoxStore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxDetail;
         private System.Windows.Forms.TextBox textBoxNum;

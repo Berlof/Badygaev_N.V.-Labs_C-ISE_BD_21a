@@ -6,28 +6,28 @@ using System.Windows.Forms;
 
 namespace AbstractMotorFactoryView
 {
-    public partial class FormStorage : Form
+    public partial class FormStore : Form
     {
         public int Id { set { id = value; } }
 
         private int? id;
 
-        public FormStorage()
+        public FormStore()
         {
             InitializeComponent();
         }
 
-        private void FormStorage_Load(object sender, EventArgs e)
+        private void FormStore_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
             {
                 try
                 {
-                    StorageViewModel view = APIClient.GetRequest<StorageViewModel>("api/Storage/Get/" + id.Value);
+                    StoreViewModel view = APIClient.GetRequest<StoreViewModel>("api/Store/Get/" + id.Value);
                     if (view != null)
                     {
-                        textBox1.Text = view.StorageName;
-                        dataGridView1.DataSource = view.StorageDetails;
+                        textBox1.Text = view.StoreName;
+                        dataGridView1.DataSource = view.StoreDetails;
                         dataGridView1.Columns[0].Visible = false;
                         dataGridView1.Columns[1].Visible = false;
                         dataGridView1.Columns[2].Visible = false;
@@ -51,17 +51,17 @@ namespace AbstractMotorFactoryView
             {
                 if (id.HasValue)
                 {
-                    APIClient.PostRequest<StorageBindingModel, bool>("api/Storage/UpdElement", new StorageBindingModel
+                    APIClient.PostRequest<StoreBindingModel, bool>("api/Store/UpdElement", new StoreBindingModel
                     {
                         Id = id.Value,
-                        StorageName = textBox1.Text
+                        StoreName = textBox1.Text
                     });
                 }
                 else
                 {
-                    APIClient.PostRequest<StorageBindingModel, bool>("api/Storage/AddElement", new StorageBindingModel
+                    APIClient.PostRequest<StoreBindingModel, bool>("api/Store/AddElement", new StoreBindingModel
                     {
-                        StorageName = textBox1.Text
+                        StoreName = textBox1.Text
                     });
                 }
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

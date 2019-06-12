@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AbstractMotorFactoryModel
 {
-    public class Storage
+    public class Store
     {
         public int Id { get; set; }
 
         [Required]
-        public string StorageName { get; set; }
+        public string StoreName { get; set; }
 
-        [ForeignKey("StorageId")]
-        public virtual List<StorageDetail> StorageDetails { get; set; }
+        [ForeignKey("StoreId")]
+        public virtual List<StoreDetail> StoreDetails { get; set; }
     }
 }

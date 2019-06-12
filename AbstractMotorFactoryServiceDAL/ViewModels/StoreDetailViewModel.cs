@@ -4,13 +4,13 @@ using System.Runtime.Serialization;
 namespace AbstractMotorFactoryServiceDAL.ViewModels
 {
     [DataContract]
-    public class StorageDetailViewModel
+    public class StoreDetailViewModel
     {
         [DataMember]
         public int Id { get; set; }
 
         [DataMember]
-        public int StorageId { get; set; }
+        public int StoreId { get; set; }
 
         [DataMember]
         public int DetailId { get; set; }

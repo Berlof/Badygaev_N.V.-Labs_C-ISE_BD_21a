@@ -10,7 +10,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.SqlServer;
 using System.IO;
-using System.Linq;
+using System.Linq;
+
 
 namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
 {
@@ -104,19 +105,19 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                 winword.Quit();
             }
         }
-        public List<StoragesLoadViewModel> GetStocksLoad()
+        public List<StoresLoadViewModel> GetStocksLoad()
         {
-            return context.Storages
+            return context.Stores
                             .ToList()
-                            .GroupJoin(context.StorageDetails
+                            .GroupJoin(context.StoreDetails
                             .Include(r => r.Detail)
                             .ToList(),
                             stock => stock,
-                            stockComponent => stockComponent.Storage,
+                            stockComponent => stockComponent.Store,
                             (stock, stockCompList) =>
-                            new StoragesLoadViewModel
+                            new StoresLoadViewModel
                             {
-                                StorageName = stock.StorageName,
+                                StoreName = stock.StoreName,
                                 TotalNumber = stockCompList.Sum(r => r.Number),
                                 Details = stockCompList.Select(r => new Tuple<string,
                                 int>(r.Detail.DetailName, r.Number))
@@ -192,7 +193,7 @@ namespace AbstractMotorFactoryServiceImplementDataBase.Implementations
                         //спускаемся на 2 ячейку вниз и 2 ячейкт влево
                         excelcells = excelcells.get_Offset(2, -2);
                         excelcells.ColumnWidth = 15;
-                        excelcells.Value2 = elem.StorageName;
+                        excelcells.Value2 = elem.StoreName;
                         excelcells = excelcells.get_Offset(1, 1);
                         //обводим границы
                         if (elem.Details.Count() > 0)
