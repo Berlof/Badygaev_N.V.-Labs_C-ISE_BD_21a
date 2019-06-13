@@ -10,6 +10,7 @@ namespace AbstractMotorFactoryModel
 {
     public class Detail
     {
+
         public int Id { get; set; }
 
         [Required]

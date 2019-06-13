@@ -4,7 +4,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
     <ProjectGuid>{D26127E6-1053-41CD-958B-6BBA7BB3FB22}</ProjectGuid>
+
     <OutputType>WinExe</OutputType>
     <RootNamespace>AbstractMotorFactoryWPF</RootNamespace>
     <AssemblyName>AbstractMotorFactoryWPF</AssemblyName>
@@ -35,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -44,6 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -105,6 +109,7 @@
     <Compile Include="FormDetails.xaml.cs">
       <DependentUpon>FormDetails.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="FormPutOnStore.xaml.cs">
       <DependentUpon>FormPutOnStore.xaml</DependentUpon>
     </Compile>
@@ -114,6 +119,7 @@
     <Compile Include="FormStores.xaml.cs">
       <DependentUpon>FormStores.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -188,6 +194,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -198,10 +205,12 @@
       <Project>{A43B68A4-FE53-4BE6-895E-D6E54C1C6D2F}</Project>
       <Name>AbstractMotorFactoryServiceDAL</Name>
     </ProjectReference>
+
     <ProjectReference Include="..\AbstractMotorFactoryServiceImplementDataBase\AbstractMotorFactoryServiceImplementDataBase.csproj">
       <Project>{50d3b594-5bde-43e3-980b-265592a2db48}</Project>
       <Name>AbstractMotorFactoryServiceImplementDataBase</Name>
     </ProjectReference>
+
     <ProjectReference Include="..\AbstractMotorFactoryServiceImplementList\AbstractMotorFactoryServiceImplementList.csproj">
       <Project>{DEA4B232-29E8-4DF5-860D-BF8055EE7BD5}</Project>
       <Name>AbstractMotorFactoryServiceImplementList</Name>

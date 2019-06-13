@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AbstractMotorFactoryWPF"
         mc:Ignorable="d"
         Title="двигатели" Height="366.813" Width="502.038">
+
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2.491,2.679">
         <DataGrid x:Name="dataGridViewEngines" HorizontalAlignment="Left" Height="312" VerticalAlignment="Top" Width="350" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" IsReadOnly="True" SelectionMode="Single" Margin="10,10,0,0"/>
         <Button x:Name="buttonAdd" Content="Добавить" HorizontalAlignment="Left" Margin="373,25,0,0" VerticalAlignment="Top" Width="74" Click="buttonAdd_Click"/>

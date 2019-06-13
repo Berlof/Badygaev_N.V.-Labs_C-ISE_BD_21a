@@ -12,13 +12,14 @@ namespace AbstractMotorFactoryModel
     {
         public int Id { get; set; }
 
+
         [Required]
         public string EngineName { get; set; }
+
 
         public decimal Cost { get; set; }
 
         [ForeignKey("EngineId")]
         public virtual List<Production> Productions { get; set; }
     }
-
 }
