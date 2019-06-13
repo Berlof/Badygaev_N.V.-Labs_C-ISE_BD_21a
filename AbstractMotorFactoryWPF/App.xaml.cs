@@ -33,6 +33,7 @@ namespace AbstractMotorFactoryWPF
             currentContainer.RegisterType<IDetailService, DetailServiceList>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<ICoreService, CoreServiceList>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IStoreService, StoreServiceList>(new HierarchicalLifetimeManager());
+
             return currentContainer;
         }
     }
