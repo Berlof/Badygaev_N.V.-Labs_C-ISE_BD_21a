@@ -1,4 +1,4 @@
-namespace AbstractMotorFactoryModel
+﻿namespace AbstractMotorFactoryModel
 {
     public enum ProductionStatus
     {
