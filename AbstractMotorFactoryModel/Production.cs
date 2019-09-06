@@ -12,8 +12,6 @@ namespace AbstractMotorFactoryModel
 
         public int EngineId { get; set; }
 
-        public string EngineName { get; set; }
-
         public int Number { get; set; }
 
         public decimal Amount { get; set; }
